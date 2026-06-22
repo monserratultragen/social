@@ -135,6 +135,10 @@
   background: #2d2a2a;
 }
 
+.navbar-hamburger.open span {
+  background: #2d2a2a;
+}
+
 .navbar-hamburger.open span:nth-child(1) {
   transform: rotate(45deg) translate(4px, 5px);
 }

@@ -3,8 +3,9 @@ import PhotoViewer from './PhotoViewer';
 import { validarClaveMaestra, fetchRecuerdoFotos, fetchHackConfig } from '../services/api';
 
 function getFotos(recuerdo) {
-  if (recuerdo.fotos && recuerdo.fotos.length > 0) {
-    return recuerdo.fotos;
+  if (recuerdo.fotos) {
+    const validas = recuerdo.fotos.filter(Boolean);
+    if (validas.length > 0) return validas;
   }
   if (recuerdo.image) return [recuerdo.image];
   return [];
