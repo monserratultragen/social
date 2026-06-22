@@ -11,6 +11,14 @@ import PhotoViewer from './components/PhotoViewer';
 import Footer from './components/Footer';
 import * as api from './services/api';
 import { posts as fallbackPosts, albums as fallbackAlbums, recuerdos as fallbackRecuerdos, favoritos as fallbackFavoritos, user as fallbackUser } from './data/monserratData';
+
+function isHacked(mode) {
+  if (mode === 'always') return true;
+  const now = new Date();
+  if (mode === 'odd_hour') return now.getHours() % 2 === 1;
+  if (mode === 'odd_day') return now.getDate() % 2 === 1;
+  return false;
+}
 import './App.css';
 
 function App() {
@@ -19,6 +27,7 @@ function App() {
   const [albums, setAlbums] = useState(fallbackAlbums);
   const [recuerdos, setRecuerdos] = useState(fallbackRecuerdos);
   const [favoritos, setFavoritos] = useState(fallbackFavoritos);
+  const [hackActive, setHackActive] = useState(false);
   const [loaded, setLoaded] = useState(false);
 
   const [viewerImages, setViewerImages] = useState(null);
@@ -41,6 +50,10 @@ function App() {
         if (albumsData.length > 0) setAlbums(albumsData);
         if (recuerdosData.length > 0) setRecuerdos(recuerdosData);
         if (favoritosData.length > 0) setFavoritos(favoritosData);
+        const hackData = await api.fetchHackConfig();
+        if (hackData) {
+          setHackActive(isHacked(hackData.hack_mode));
+        }
       } catch (err) {
         console.warn('API no disponible, usando datos de respaldo:', err);
       }
@@ -65,14 +78,14 @@ function App() {
     <div className="app">
       <Navbar hiddenSections={[
         ...(albums.length === 0 ? ['galerias'] : []),
-        ...(recuerdos.length === 0 ? ['recuerdos'] : []),
+        ...(!hackActive || recuerdos.length === 0 ? ['recuerdos'] : []),
         ...(favoritos.length === 0 ? ['favoritos'] : []),
       ]} />
       <Hero user={user} />
       {posts.length > 0 && <Inicio posts={posts} onImageClick={openViewer} />}
       <Perfil user={user} />
       {albums.length > 0 && <Galerias albums={albums} />}
-      {recuerdos.length > 0 && <Recuerdos recuerdos={recuerdos} password={user.recuerdosPassword} bannerUrl={user.recuerdosBannerUrl} />}
+      {hackActive && recuerdos.length > 0 && <Recuerdos recuerdos={recuerdos} password={user.recuerdosPassword} bannerUrl={user.recuerdosBannerUrl} />}
       {favoritos.length > 0 && <Favoritos favoritos={favoritos} />}
       <Contacto />
       <Footer />
