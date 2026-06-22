@@ -64,7 +64,7 @@ function App() {
 
   const openViewer = useCallback((image, allImages, currentItem) => {
     const all = allImages || [image];
-    const flat = all.map((item) => (item.image || item)).filter(Boolean);
+    const flat = all.map((item) => (typeof item === 'string' ? item : item.image)).filter(Boolean);
     const idx = currentItem ? flat.findIndex((img) => img === image) : 0;
     setViewerImages(flat);
     setViewerIndex(Math.max(0, idx));
