@@ -4,7 +4,7 @@ export default function Inicio({ posts = [], onImageClick }) {
       <h2 className="section-title">Últimos momentos</h2>
       <p className="section-subtitle">Lo que he compartido recientemente</p>
       <div className="feed-grid">
-        {posts.map((post) => (
+        {posts.filter(p => p.image).map((post) => (
           <article
             key={post.id}
             className="feed-card"

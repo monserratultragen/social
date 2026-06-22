@@ -5,14 +5,14 @@ export default function Favoritos({ favoritos = [] }) {
   const [viewerOpen, setViewerOpen] = useState(false);
   const [viewerIndex, setViewerIndex] = useState(0);
 
-  const images = useMemo(() => favoritos.map((f) => f.image), [favoritos]);
+  const images = useMemo(() => favoritos.filter(f => f.image).map((f) => f.image), [favoritos]);
 
   return (
     <section id="favoritos" className="section">
       <h2 className="section-title">Favoritos</h2>
       <p className="section-subtitle">Mis lugares y fotografías especiales</p>
       <div className="favoritos-grid">
-        {favoritos.map((item, i) => (
+        {favoritos.filter(f => f.image).map((item, i) => (
           <div
             key={item.id}
             className="favorito-card"

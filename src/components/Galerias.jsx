@@ -4,6 +4,7 @@ import PhotoViewer from './PhotoViewer';
 function AlbumDetail({ album, onBack }) {
   const [viewerOpen, setViewerOpen] = useState(false);
   const [viewerIndex, setViewerIndex] = useState(0);
+  const albumPhotos = album.photos.filter(Boolean);
 
   return (
     <div>
@@ -12,7 +13,7 @@ function AlbumDetail({ album, onBack }) {
         <h3 className="album-detail-title">{album.title}</h3>
       </div>
       <div className="collage-grid">
-        {album.photos.map((src, i) => (
+        {albumPhotos.map((src, i) => (
           <div
             key={i}
             className={`collage-item ${i === 0 || i === 4 || i === 7 || i === 11 ? 'collage-wide' : ''} ${i === 2 || i === 9 ? 'collage-tall' : ''}`}
@@ -24,7 +25,7 @@ function AlbumDetail({ album, onBack }) {
       </div>
       {viewerOpen && (
         <PhotoViewer
-          images={album.photos}
+          images={albumPhotos}
           currentIndex={viewerIndex}
           onClose={() => setViewerOpen(false)}
           onNavigate={setViewerIndex}
@@ -50,7 +51,7 @@ export default function Galerias({ albums = [] }) {
       <h2 className="section-title">Galerías</h2>
       <p className="section-subtitle">Mis álbumes de fotografías</p>
       <div className="albums-grid">
-        {albums.map((album) => (
+        {albums.filter(a => a.cover).map((album) => (
           <div key={album.id} className="album-card" onClick={() => setSelectedAlbum(album)}>
             <img className="album-cover" src={album.cover} alt={album.title} loading="lazy" />
             <div className="album-info">

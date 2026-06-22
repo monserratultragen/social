@@ -447,47 +447,24 @@
 }
 
 @media (max-width: 600px) {
-  .perfil-container {
-    gap: 20px;
-  }
-  .perfil-avatar-wrapper {
-    display: flex;
-    flex-direction: row;
-    align-items: flex-start;
-    gap: 20px;
-  }
   .perfil-avatar {
-    width: 120px;
-    min-width: 120px;
-    aspect-ratio: 1;
-    border-radius: 14px;
-    margin: 0;
+    width: 180px;
+    margin: 0 auto;
   }
   .perfil-name {
-    font-size: 1.15rem;
-    margin-top: 0;
-  }
-  .perfil-details {
-    margin-top: 8px;
-  }
-}
-
-@media (max-width: 400px) {
-  .perfil-avatar-wrapper {
-    gap: 14px;
-  }
-  .perfil-avatar {
-    width: 90px;
-    min-width: 90px;
-  }
-  .perfil-name {
-    font-size: 1rem;
+    font-size: 1.3rem;
+    text-align: center;
   }
   .perfil-tagline {
-    font-size: 0.78rem;
+    text-align: center;
   }
   .perfil-details {
-    font-size: 0.75rem;
+    text-align: center;
+    font-size: 0.82rem;
+  }
+  .perfil-bio {
+    word-break: break-word;
+    overflow-wrap: break-word;
   }
 }
 
