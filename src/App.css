@@ -446,6 +446,51 @@
   }
 }
 
+@media (max-width: 600px) {
+  .perfil-container {
+    gap: 20px;
+  }
+  .perfil-avatar-wrapper {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 20px;
+  }
+  .perfil-avatar {
+    width: 120px;
+    min-width: 120px;
+    aspect-ratio: 1;
+    border-radius: 14px;
+    margin: 0;
+  }
+  .perfil-name {
+    font-size: 1.15rem;
+    margin-top: 0;
+  }
+  .perfil-details {
+    margin-top: 8px;
+  }
+}
+
+@media (max-width: 400px) {
+  .perfil-avatar-wrapper {
+    gap: 14px;
+  }
+  .perfil-avatar {
+    width: 90px;
+    min-width: 90px;
+  }
+  .perfil-name {
+    font-size: 1rem;
+  }
+  .perfil-tagline {
+    font-size: 0.78rem;
+  }
+  .perfil-details {
+    font-size: 0.75rem;
+  }
+}
+
 /* ==============================
    GALERÍAS (MASONRY)
    ============================== */
@@ -1399,9 +1444,19 @@
   font-weight: 300;
 }
 
-@media (max-width: 500px) {
-  .diarios-grid {
-    grid-template-columns: 1fr;
+@media (max-width: 600px) {
+  .diario-card {
+    padding: 18px 12px;
+  }
+  .diario-card-icon {
+    font-size: 1.6rem;
+    margin-bottom: 6px;
+  }
+  .diario-card-name {
+    font-size: 0.85rem;
+  }
+  .diario-card-desc {
+    font-size: 0.72rem;
   }
 }
 
