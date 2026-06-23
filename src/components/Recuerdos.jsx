@@ -1,6 +1,6 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import PhotoViewer from './PhotoViewer';
-import { validarClaveMaestra, fetchRecuerdoFotos, fetchHackConfig } from '../services/api';
+import { validarClaveMaestra, fetchRecuerdoFotos } from '../services/api';
 
 function getFotos(recuerdo) {
   if (recuerdo.fotos) {
@@ -14,8 +14,7 @@ function getFotos(recuerdo) {
 const sprayColors = ['#ff0000', '#00ff00', '#0088ff', '#ffcc00', '#ff6600', '#ff00ff', '#00ffff', '#cc00ff'];
 const emojis = ['🍆', '🥵', '🍑'];
 
-export default function Recuerdos({ recuerdos = [], bannerUrl }) {
-  const [hackConfig, setHackConfig] = useState(null);
+export default function Recuerdos({ recuerdos = [], bannerUrl, hackConfig }) {
   const [locked, setLocked] = useState(true);
   const [pwModal, setPwModal] = useState(false);
   const [pwValue, setPwValue] = useState('');
@@ -24,12 +23,6 @@ export default function Recuerdos({ recuerdos = [], bannerUrl }) {
   const [viewerOpen, setViewerOpen] = useState(false);
   const [viewerImages, setViewerImages] = useState([]);
   const [viewerIndex, setViewerIndex] = useState(0);
-
-  useEffect(() => {
-    fetchHackConfig()
-      .then((cfg) => { if (cfg) setHackConfig(cfg); })
-      .catch(() => {});
-  }, []);
 
   const handleUnlock = async () => {
     setValidating(true);
@@ -80,7 +73,7 @@ export default function Recuerdos({ recuerdos = [], bannerUrl }) {
       <div className="recuerdos-defaced-grain" />
 
       <div className="recuerdos-header-defaced">
-        <h2 className="recuerdos-title-defaced">{c.header_title || 'HACKED'}</h2>
+        <h2 className="recuerdos-title-defaced">SITIO HACKEADO!!</h2>
         <p className="recuerdos-subtitle-defaced">{c.header_subtitle || ''}</p>
       </div>
 

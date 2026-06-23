@@ -1,8 +1,8 @@
 export default function Inicio({ posts = [], onImageClick }) {
   return (
     <section id="inicio-feed" className="section">
-      <h2 className="section-title">Últimos momentos</h2>
-      <p className="section-subtitle">Lo que he compartido recientemente</p>
+      <h2 className="section-title">Recientes</h2>
+      <p className="section-subtitle">momentos compartidos recientemente</p>
       <div className="feed-grid">
         {posts.filter(p => p.image).map((post) => (
           <article

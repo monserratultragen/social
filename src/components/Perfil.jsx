@@ -6,7 +6,7 @@ export default function Perfil({ user }) {
   return (
     <section id="perfil" className="section">
       <h2 className="section-title">Sobre mí</h2>
-      <p className="section-subtitle">Un poco de mi mundo</p>
+      <p className="section-subtitle">puedes conocerme desde aquí</p>
       <div className="perfil-container">
         <div className="perfil-avatar-wrapper">
           <img className="perfil-avatar" src={user.avatar} alt={user.fullName} />

@@ -28,9 +28,9 @@ export default function Hero({ user }) {
       <div className="hero-overlay" />
       <div className="hero-content">
         <h1>Monserrat</h1>
-        <p>{user.tagline}</p>
+        <p className="hero-subtitle">mi sitio social</p>
       </div>
-      <div className="hero-scroll">Descubre</div>
+      <div className="hero-scroll">Explora ahora</div>
     </section>
   );
 }
