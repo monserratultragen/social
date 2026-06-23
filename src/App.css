@@ -733,7 +733,7 @@
   letter-spacing: 4px !important;
   text-transform: uppercase !important;
   text-shadow: 0 0 10px rgba(0, 255, 0, 0.6);
-  animation: recuerdos-scroll 30s linear infinite;
+  animation: recuerdos-scroll 12s linear infinite;
 }
 
 @keyframes recuerdos-scroll {
@@ -1940,7 +1940,7 @@
   letter-spacing: 6px;
   text-transform: uppercase;
   line-height: 30px;
-  animation: hack-ticker-scroll 8s linear infinite;
+  animation: hack-ticker-scroll 12s linear infinite;
   padding-left: 100%;
 }
 

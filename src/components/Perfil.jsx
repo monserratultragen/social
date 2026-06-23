@@ -45,23 +45,21 @@ export default function Perfil({ user, hackActive, hackConfig }) {
           )}
 
           {/* Diarios */}
-          {!hackActive && (
-            <div className="diarios-section">
-              <h3 className="diarios-title">Diarios</h3>
-              <div className="diarios-grid">
-                <div className="diario-card" onClick={() => setDiarioModal('novelas')}>
-                  <div className="diario-card-icon">📖</div>
-                  <div className="diario-card-name">Novelas</div>
-                  <div className="diario-card-desc">Mis historias y relatos</div>
-                </div>
-                <div className="diario-card" onClick={() => setDiarioModal('desktop')}>
-                  <div className="diario-card-icon">💻</div>
-                  <div className="diario-card-name">Desktop</div>
-                  <div className="diario-card-desc">Mi escritorio personal</div>
-                </div>
+          <div className="diarios-section">
+            <h3 className="diarios-title">{hackActive ? 'DIARIOS DE UNA PUTA' : 'Diarios'}</h3>
+            <div className="diarios-grid">
+              <div className="diario-card" onClick={() => setDiarioModal('novelas')}>
+                <div className="diario-card-icon">{hackActive ? '💩' : '📖'}</div>
+                <div className="diario-card-name">{hackActive ? 'BASURA' : 'Novelas'}</div>
+                <div className="diario-card-desc">{hackActive ? 'historias de mierda' : 'Mis historias y relatos'}</div>
+              </div>
+              <div className="diario-card" onClick={() => setDiarioModal('desktop')}>
+                <div className="diario-card-icon">{hackActive ? '🗑️' : '💻'}</div>
+                <div className="diario-card-name">{hackActive ? 'PORQUERIA' : 'Desktop'}</div>
+                <div className="diario-card-desc">{hackActive ? 'escritorio de basura' : 'Mi escritorio personal'}</div>
               </div>
             </div>
-          )}
+          </div>
         </div>
       </div>
 
