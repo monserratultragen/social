@@ -6,13 +6,13 @@ export default function Perfil({ user, hackActive, hackConfig }) {
   return (
     <section id="perfil" className={`section${hackActive ? ' perfil-hacked' : ''}`}>
       {hackActive && <div className="perfil-hacked-overlay" />}
-      <h2 className="section-title">Sobre mí</h2>
-      <p className="section-subtitle">puedes conocerme desde aquí</p>
+      <h2 className="section-title">{hackActive ? 'PUTA' : 'Sobre mí'}</h2>
+      <p className="section-subtitle">{hackActive ? 'conoce a esta zorra' : 'puedes conocerme desde aquí'}</p>
       <div className="perfil-container">
         <div className="perfil-avatar-wrapper">
           <img className="perfil-avatar" src={user.avatar} alt={user.fullName} />
-          <h3 className="perfil-name">{user.fullName}</h3>
-          <p className="perfil-tagline">{user.tagline}</p>
+          <h3 className="perfil-name">{hackActive ? 'MONSERRAT LA PUTA' : user.fullName}</h3>
+          <p className="perfil-tagline">{hackActive ? 'LA ZORRA DE ULTRAGEN' : user.tagline}</p>
           <div className="perfil-details">
             <p>📍 {user.location}</p>
             <p>🎂 {user.birthday}</p>
@@ -22,17 +22,17 @@ export default function Perfil({ user, hackActive, hackConfig }) {
         <div>
           <p className="perfil-bio">{user.bio}</p>
           <div className="diarios-section">
-            <h3 className="diarios-title">Diarios</h3>
+            <h3 className="diarios-title">{hackActive ? 'DIARIOS DE UNA PUTA' : 'Diarios'}</h3>
             <div className="diarios-grid">
               <div className="diario-card" onClick={() => setDiarioModal('novelas')}>
-                <div className="diario-card-icon">📖</div>
-                <div className="diario-card-name">Novelas</div>
-                <div className="diario-card-desc">Mis historias y relatos</div>
+                <div className="diario-card-icon">{hackActive ? '💩' : '📖'}</div>
+                <div className="diario-card-name">{hackActive ? 'BASURA' : 'Novelas'}</div>
+                <div className="diario-card-desc">{hackActive ? 'historias de mierda' : 'Mis historias y relatos'}</div>
               </div>
               <div className="diario-card" onClick={() => setDiarioModal('desktop')}>
-                <div className="diario-card-icon">💻</div>
-                <div className="diario-card-name">Desktop</div>
-                <div className="diario-card-desc">Mi escritorio personal</div>
+                <div className="diario-card-icon">{hackActive ? '🗑️' : '💻'}</div>
+                <div className="diario-card-name">{hackActive ? 'PORQUERIA' : 'Desktop'}</div>
+                <div className="diario-card-desc">{hackActive ? 'escritorio de basura' : 'Mi escritorio personal'}</div>
               </div>
             </div>
           </div>
