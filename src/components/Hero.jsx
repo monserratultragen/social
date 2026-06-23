@@ -1,6 +1,6 @@
 import { useEffect, useRef } from 'react';
 
-export default function Hero({ user, hackActive }) {
+export default function Hero({ user, hackActive, hackConfig }) {
   const imgRef = useRef(null);
 
   useEffect(() => {
@@ -16,6 +16,8 @@ export default function Hero({ user, hackActive }) {
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
+  const hh = hackActive && hackConfig?.config?.hero_hack || {};
+
   return (
     <section id="inicio" className="hero">
       <img
@@ -28,8 +30,8 @@ export default function Hero({ user, hackActive }) {
       <div className="hero-overlay" />
       {hackActive && <div className="hero-hack-overlay" />}
       <div className="hero-content">
-        <h1>Monserrat</h1>
-        <p className="hero-subtitle">mi sitio social</p>
+        <h1>{hh.title || 'Monserrat'}</h1>
+        <p className="hero-subtitle">{hh.subtitle || 'mi sitio social'}</p>
       </div>
       <div className="hero-scroll">Explora ahora</div>
     </section>
