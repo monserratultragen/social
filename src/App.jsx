@@ -102,15 +102,6 @@ function App() {
           <div className="hack-ticker-top">
             <div className="hack-ticker-inner">{tickerFull}  —  {tickerFull}  —  {tickerFull}  —  {tickerFull}  —  {tickerFull}  —  {tickerFull}  —  {tickerFull}  —  {tickerFull}  —  {tickerFull}  —  {tickerFull}</div>
           </div>
-          {(cfg.floating_insults || []).map((text, i) => (
-            <span key={i} className="hack-floating-text" style={{
-              top: `${5 + Math.random() * 85}%`,
-              left: `${Math.random() * 85}%`,
-              transform: `rotate(${-20 + Math.random() * 40}deg)`,
-              fontSize: `${0.8 + Math.random() * 0.6}rem`,
-              animationDelay: `${i * 2}s`,
-            }}>{text}</span>
-          ))}
           <div className="hack-ticker-bottom">
             <div className="hack-ticker-inner">{tickerFull}  —  {tickerFull}  —  {tickerFull}  —  {tickerFull}  —  {tickerFull}  —  {tickerFull}  —  {tickerFull}  —  {tickerFull}  —  {tickerFull}  —  {tickerFull}</div>
           </div>

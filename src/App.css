@@ -659,11 +659,11 @@
 .recuerdos-subtitle-defaced {
   font-family: 'Courier New', monospace !important;
   font-size: 0.85rem !important;
-  color: #00ff00 !important;
+  color: #ff0000 !important;
   letter-spacing: 2px !important;
   text-transform: uppercase !important;
   margin: 0 !important;
-  text-shadow: 0 0 8px rgba(0, 255, 0, 0.5);
+  text-shadow: none;
 }
 
 /* Banner */
@@ -721,11 +721,11 @@
   position: relative;
   z-index: 1;
   margin: 12px 0;
-  border-top: 2px solid #00ff00;
-  border-bottom: 2px solid #00ff00;
+  border-top: 2px solid #cc0000;
+  border-bottom: 2px solid #cc0000;
   padding: 6px 0;
-  background: rgba(0, 50, 0, 0.15);
-  box-shadow: 0 0 15px rgba(0, 255, 0, 0.15);
+  background: rgba(50, 0, 0, 0.15);
+  box-shadow: 0 0 15px rgba(255, 0, 0, 0.15);
 }
 
 .recuerdos-ticker {
@@ -733,10 +733,10 @@
   overflow: hidden;
   font-family: 'Courier New', monospace !important;
   font-size: 1.3rem !important;
-  color: #00ff00 !important;
+  color: #ff0000 !important;
   letter-spacing: 4px !important;
   text-transform: uppercase !important;
-  text-shadow: 0 0 10px rgba(0, 255, 0, 0.6);
+  text-shadow: none;
   animation: recuerdos-scroll 6s linear infinite;
 }
 
@@ -777,11 +777,11 @@
 .recuerdos-defaced-line-sm {
   font-family: 'Courier New', monospace !important;
   font-size: 1.1rem !important;
-  color: #00ff00 !important;
+  color: #ff0000 !important;
   margin: 8px 0 !important;
   letter-spacing: 2px !important;
   text-transform: uppercase !important;
-  text-shadow: 0 0 6px rgba(0, 255, 0, 0.4);
+  text-shadow: none;
 }
 
 /* Locked hint */
@@ -1881,39 +1881,6 @@
   color: #cc0000 !important;
 }
 
-.perfil-insults-banner {
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-  margin-bottom: 16px;
-  padding: 12px;
-  border: 2px dashed #cc0000;
-  background: rgba(20, 0, 0, 0.5);
-}
-
-.perfil-insult-line {
-  font-family: 'Caveat', cursive;
-  font-size: 1.3rem;
-  font-weight: 700;
-  letter-spacing: 1px;
-  animation: hack-fade-pulse 3s ease-in-out infinite;
-}
-
-.perfil-insults-list {
-  margin-top: 16px;
-  padding: 12px;
-  border: 1px solid #cc0000;
-  background: rgba(20, 0, 0, 0.5);
-}
-
-.perfil-insult-item {
-  font-family: 'Courier New', monospace !important;
-  font-size: 0.9rem !important;
-  color: #ff0000 !important;
-  margin: 4px 0 !important;
-  letter-spacing: 1px !important;
-}
-
 .perfil-hack-signature {
   text-align: center;
   margin-top: 20px;
@@ -1966,25 +1933,4 @@
 @keyframes hack-ticker-scroll {
   0% { transform: translateX(0); }
   100% { transform: translateX(-50%); }
-}
-
-/* Floating insults */
-.hack-floating-text {
-  position: fixed;
-  font-family: 'Courier New', monospace;
-  font-weight: 700;
-  color: #ff0000;
-  background: rgba(0, 0, 0, 0.8);
-  padding: 4px 10px;
-  border: 1px solid #cc0000;
-  white-space: nowrap;
-  z-index: 9998;
-  pointer-events: none;
-  animation: hack-fade-pulse 4s ease-in-out infinite;
-  user-select: none;
-}
-
-@keyframes hack-fade-pulse {
-  0%, 100% { opacity: 0.3; }
-  50% { opacity: 1; }
 }
