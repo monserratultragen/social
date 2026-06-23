@@ -70,7 +70,7 @@ export default function Recuerdos({ recuerdos = [], bannerUrl, hackConfig }) {
 
   return (
     <section id="recuerdos" className="section recuerdos-section-defaced">
-      <div className="recuerdos-defaced-grain" />
+      <div className="recuerdos-defaced-overlay" />
 
       <div className="recuerdos-header-defaced">
         <h2 className="recuerdos-title-defaced">SITIO HACKEADO!!</h2>
@@ -100,20 +100,6 @@ export default function Recuerdos({ recuerdos = [], bannerUrl, hackConfig }) {
           ))}
         </div>
       )}
-
-      <div className="recuerdos-scattered">
-        {positions.map((p, i) => (
-          <span key={i} className="recuerdos-scat" style={{
-            top: p.top, left: p.left, right: p.right,
-            fontSize: p.size,
-            transform: `rotate(${p.rotate})`,
-            color: sprayColors[i % sprayColors.length],
-            opacity: 0.25 + (i % 3) * 0.1,
-          }}>
-            {emojis[i % emojis.length]}
-          </span>
-        ))}
-      </div>
 
       {locked && c.locked_hint && (
         <p className="recuerdos-locked-hint-defaced">{c.locked_hint}</p>
