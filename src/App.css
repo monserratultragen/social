@@ -1842,6 +1842,21 @@
   z-index: 0;
 }
 
+.hero-hack-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.3);
+  background-image: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 2px,
+    rgba(255, 0, 0, 0.04) 2px,
+    rgba(255, 0, 0, 0.04) 4px
+  );
+  pointer-events: none;
+  z-index: 2;
+}
+
 .perfil-hacked .perfil-container {
   position: relative;
   z-index: 1;

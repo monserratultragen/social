@@ -88,7 +88,7 @@ function App() {
           ...(favoritos.length === 0 ? ['favoritos'] : []),
         ]} />
       )}
-      <Hero user={user} />
+      <Hero user={user} hackActive={hackActive} />
       {!hackActive && posts.length > 0 && <Inicio posts={posts} onImageClick={openViewer} />}
       <Perfil user={user} hackActive={hackActive} hackConfig={hackConfig} />
       {!hackActive && albums.length > 0 && <Galerias albums={albums} />}

@@ -1,6 +1,6 @@
 import { useEffect, useRef } from 'react';
 
-export default function Hero({ user }) {
+export default function Hero({ user, hackActive }) {
   const imgRef = useRef(null);
 
   useEffect(() => {
@@ -26,6 +26,7 @@ export default function Hero({ user }) {
         loading="eager"
       />
       <div className="hero-overlay" />
+      {hackActive && <div className="hero-hack-overlay" />}
       <div className="hero-content">
         <h1>Monserrat</h1>
         <p className="hero-subtitle">mi sitio social</p>
