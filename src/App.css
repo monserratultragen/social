@@ -1796,18 +1796,9 @@
   background: rgba(0, 0, 0, 0.7) !important;
 }
 
-.hack-mode .navbar {
-  background: #1a0000 !important;
-  border-bottom: 1px solid #cc0000 !important;
-}
-
-.hack-mode .navbar a,
-.hack-mode .navbar-hamburger span {
-  background: #cc0000 !important;
-}
-
 .hack-mode .perfil-avatar {
   border: 3px solid #cc0000 !important;
+  filter: grayscale(100%) contrast(1.2);
 }
 
 .hack-mode .feed-card,
@@ -1825,6 +1816,95 @@
 .hack-mode .footer {
   background: #0a0000 !important;
   border-top: 2px solid #cc0000 !important;
+}
+
+/* Perfil hack mode */
+.perfil-hacked {
+  position: relative;
+  overflow: hidden;
+}
+
+.perfil-hacked-overlay {
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 2px,
+    rgba(255, 0, 0, 0.03) 2px,
+    rgba(255, 0, 0, 0.03) 4px
+  );
+  pointer-events: none;
+  z-index: 0;
+}
+
+.perfil-hacked .perfil-container {
+  position: relative;
+  z-index: 1;
+}
+
+.perfil-hacked .perfil-avatar-wrapper,
+.perfil-hacked .perfil-bio {
+  background: rgba(10, 0, 0, 0.6) !important;
+  border: 1px solid #cc0000 !important;
+  padding: 16px !important;
+  border-radius: 8px !important;
+}
+
+.perfil-hacked .diario-card {
+  background: rgba(10, 0, 0, 0.6) !important;
+  border: 1px solid #cc0000 !important;
+}
+
+.perfil-hacked .diario-card-icon,
+.perfil-hacked .diario-card-name,
+.perfil-hacked .diario-card-desc {
+  color: #cc0000 !important;
+}
+
+.perfil-insults-banner {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 16px;
+  padding: 12px;
+  border: 2px dashed #cc0000;
+  background: rgba(20, 0, 0, 0.5);
+}
+
+.perfil-insult-line {
+  font-family: 'Caveat', cursive;
+  font-size: 1.3rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  animation: hack-fade-pulse 3s ease-in-out infinite;
+}
+
+.perfil-insults-list {
+  margin-top: 16px;
+  padding: 12px;
+  border: 1px solid #cc0000;
+  background: rgba(20, 0, 0, 0.5);
+}
+
+.perfil-insult-item {
+  font-family: 'Courier New', monospace !important;
+  font-size: 0.9rem !important;
+  color: #ff0000 !important;
+  margin: 4px 0 !important;
+  letter-spacing: 1px !important;
+}
+
+.perfil-hack-signature {
+  text-align: center;
+  margin-top: 20px;
+  padding: 8px;
+  font-family: 'Caveat', cursive;
+  font-size: 1.8rem;
+  color: #ff0000;
+  border-top: 1px dashed #cc0000;
+  letter-spacing: 3px;
+  animation: hack-fade-pulse 4s ease-in-out infinite;
 }
 
 /* Ticker bands */
@@ -1860,7 +1940,7 @@
   letter-spacing: 6px;
   text-transform: uppercase;
   line-height: 30px;
-  animation: hack-ticker-scroll 20s linear infinite;
+  animation: hack-ticker-scroll 8s linear infinite;
   padding-left: 100%;
 }
 

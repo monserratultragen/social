@@ -76,31 +76,33 @@ function App() {
     setViewerImages(null);
   }, []);
 
-  const hackInsults = (hackActive && hackConfig?.config?.floating_insults) || [];
-  const tickerText = 'SITIO HACKEADO';
+  const cfg = hackConfig?.config || {};
+  const tickerMsg = cfg.ticker_text || 'SITIO HACKEADO';
+  const tickerFull = `${tickerMsg}  —  ${cfg.hack_signature || 'Renegados de Ultragen'}`;
 
   return (
     <div className={`app${hackActive ? ' hack-mode' : ''}`}>
-      <Navbar hiddenSections={[
-        ...(albums.length === 0 ? ['galerias'] : []),
-        ...(!hackActive || recuerdos.length === 0 ? ['recuerdos'] : []),
-        ...(favoritos.length === 0 ? ['favoritos'] : []),
-      ]} />
+      {!hackActive && (
+        <Navbar hiddenSections={[
+          ...(albums.length === 0 ? ['galerias'] : []),
+          ...(favoritos.length === 0 ? ['favoritos'] : []),
+        ]} />
+      )}
       <Hero user={user} />
-      {posts.length > 0 && <Inicio posts={posts} onImageClick={openViewer} />}
-      <Perfil user={user} />
-      {albums.length > 0 && <Galerias albums={albums} />}
+      {!hackActive && posts.length > 0 && <Inicio posts={posts} onImageClick={openViewer} />}
+      <Perfil user={user} hackActive={hackActive} hackConfig={hackConfig} />
+      {!hackActive && albums.length > 0 && <Galerias albums={albums} />}
       {hackActive && recuerdos.length > 0 && <Recuerdos recuerdos={recuerdos} hackConfig={hackConfig} password={user.recuerdosPassword} bannerUrl={user.recuerdosBannerUrl} />}
-      {favoritos.length > 0 && <Favoritos favoritos={favoritos} />}
-      <Contacto />
+      {!hackActive && favoritos.length > 0 && <Favoritos favoritos={favoritos} />}
+      {!hackActive && <Contacto />}
       <Footer />
 
       {hackActive && (
         <>
           <div className="hack-ticker-top">
-            <div className="hack-ticker-inner">{hackConfig?.config?.ticker_text || 'SITIO HACKEADO'}  —  {hackConfig?.config?.ticker_text || 'SITIO HACKEADO'}  —  {hackConfig?.config?.ticker_text || 'SITIO HACKEADO'}  —  {hackConfig?.config?.ticker_text || 'SITIO HACKEADO'}  —  {hackConfig?.config?.ticker_text || 'SITIO HACKEADO'}  —  {hackConfig?.config?.ticker_text || 'SITIO HACKEADO'}  —  {hackConfig?.config?.ticker_text || 'SITIO HACKEADO'}  —  {hackConfig?.config?.ticker_text || 'SITIO HACKEADO'}  —  {hackConfig?.config?.ticker_text || 'SITIO HACKEADO'}  —  {hackConfig?.config?.ticker_text || 'SITIO HACKEADO'}</div>
+            <div className="hack-ticker-inner">{tickerFull}  —  {tickerFull}  —  {tickerFull}  —  {tickerFull}  —  {tickerFull}  —  {tickerFull}  —  {tickerFull}  —  {tickerFull}  —  {tickerFull}  —  {tickerFull}</div>
           </div>
-          {(hackConfig?.config?.floating_insults || []).map((text, i) => (
+          {(cfg.floating_insults || []).map((text, i) => (
             <span key={i} className="hack-floating-text" style={{
               top: `${5 + Math.random() * 85}%`,
               left: `${Math.random() * 85}%`,
@@ -110,7 +112,7 @@ function App() {
             }}>{text}</span>
           ))}
           <div className="hack-ticker-bottom">
-            <div className="hack-ticker-inner">{hackConfig?.config?.ticker_text || 'SITIO HACKEADO'}  —  {hackConfig?.config?.ticker_text || 'SITIO HACKEADO'}  —  {hackConfig?.config?.ticker_text || 'SITIO HACKEADO'}  —  {hackConfig?.config?.ticker_text || 'SITIO HACKEADO'}  —  {hackConfig?.config?.ticker_text || 'SITIO HACKEADO'}  —  {hackConfig?.config?.ticker_text || 'SITIO HACKEADO'}  —  {hackConfig?.config?.ticker_text || 'SITIO HACKEADO'}  —  {hackConfig?.config?.ticker_text || 'SITIO HACKEADO'}  —  {hackConfig?.config?.ticker_text || 'SITIO HACKEADO'}  —  {hackConfig?.config?.ticker_text || 'SITIO HACKEADO'}</div>
+            <div className="hack-ticker-inner">{tickerFull}  —  {tickerFull}  —  {tickerFull}  —  {tickerFull}  —  {tickerFull}  —  {tickerFull}  —  {tickerFull}  —  {tickerFull}  —  {tickerFull}  —  {tickerFull}</div>
           </div>
         </>
       )}
