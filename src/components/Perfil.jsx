@@ -3,6 +3,8 @@ import { useState } from 'react';
 export default function Perfil({ user, hackActive, hackConfig }) {
   const [diarioModal, setDiarioModal] = useState(null);
   const ph = hackActive && hackConfig?.config?.perfil_hack || {};
+  const novelasImg = hackActive ? (ph.card_novelas_img || '') : (user.cardNovelasImg || '');
+  const desktopImg = hackActive ? (ph.card_desktop_img || '') : (user.cardDesktopImg || '');
 
   return (
     <section id="perfil" className={`section${hackActive ? ' perfil-hacked' : ''}`}>
@@ -13,7 +15,9 @@ export default function Perfil({ user, hackActive, hackConfig }) {
         <div className="perfil-avatar-wrapper">
           <img className="perfil-avatar" src={user.avatar} alt={user.fullName} />
           <h3 className="perfil-name">{hackActive ? ph.name : user.fullName}</h3>
-          <p className="perfil-tagline">{hackActive ? ph.tagline : user.tagline}</p>
+          {(hackActive ? ph.tagline : user.tagline).split('\n').filter(Boolean).map((line, i) => (
+            <p key={i} className="perfil-tagline">{line}</p>
+          ))}
           <div className="perfil-details">
             <p>📍 {user.location}</p>
             <p>🎂 {user.birthday}</p>
@@ -25,13 +29,13 @@ export default function Perfil({ user, hackActive, hackConfig }) {
           <div className="diarios-section">
             <h3 className="diarios-title">{hackActive ? ph.diarios_title : 'Diarios'}</h3>
             <div className="diarios-grid">
-              <div className="diario-card" onClick={() => setDiarioModal('novelas')}>
-                <div className="diario-card-icon">{hackActive ? '💩' : '📖'}</div>
+              <div className={`diario-card${novelasImg ? ' has-bg' : ''}`} style={novelasImg ? { backgroundImage: `url(${novelasImg})` } : {}} onClick={() => setDiarioModal('novelas')}>
+                <div className="diario-card-icon">📖</div>
                 <div className="diario-card-name">{hackActive ? ph.diario_novelas_name : 'Novelas'}</div>
                 <div className="diario-card-desc">{hackActive ? ph.diario_novelas_desc : 'Mis historias y relatos'}</div>
               </div>
-              <div className="diario-card" onClick={() => setDiarioModal('desktop')}>
-                <div className="diario-card-icon">{hackActive ? '🗑️' : '💻'}</div>
+              <div className={`diario-card${desktopImg ? ' has-bg' : ''}`} style={desktopImg ? { backgroundImage: `url(${desktopImg})` } : {}} onClick={() => setDiarioModal('desktop')}>
+                <div className="diario-card-icon">💻</div>
                 <div className="diario-card-name">{hackActive ? ph.diario_desktop_name : 'Desktop'}</div>
                 <div className="diario-card-desc">{hackActive ? ph.diario_desktop_desc : 'Mi escritorio personal'}</div>
               </div>

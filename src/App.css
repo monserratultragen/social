@@ -524,6 +524,14 @@
   letter-spacing: 0.3px;
 }
 
+.album-comentario {
+  font-size: 0.78rem;
+  color: #8a7d7a;
+  margin-top: 6px;
+  line-height: 1.4;
+  font-style: italic;
+}
+
 /* Album detail / masonry photos */
 
 .album-detail-header {
@@ -1114,6 +1122,27 @@
   text-transform: uppercase;
 }
 
+.favorito-comentario {
+  font-size: 0.78rem;
+  color: #8a7d7a;
+  margin-top: 6px;
+  line-height: 1.4;
+  font-style: italic;
+}
+
+.favorito-sl-link {
+  font-size: 0.7rem;
+  color: #4fc3f7;
+  text-decoration: none;
+  white-space: nowrap;
+  flex-shrink: 0;
+  margin-left: 8px;
+}
+
+.favorito-sl-link:hover {
+  text-decoration: underline;
+}
+
 /* ==============================
    CONTACTO
    ============================== */
@@ -1401,6 +1430,41 @@
   cursor: pointer;
   transition: transform 0.4s ease, box-shadow 0.4s ease;
   border: 1px solid rgba(0, 0, 0, 0.04);
+}
+
+.diario-card.has-bg {
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  min-height: 140px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.diario-card.has-bg::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 16px;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.diario-card.has-bg .diario-card-icon,
+.diario-card.has-bg .diario-card-name,
+.diario-card.has-bg .diario-card-desc {
+  position: relative;
+  z-index: 1;
+  color: #fff;
+}
+
+.perfil-hacked .diario-card.has-bg {
+  border: 1px solid #cc0000 !important;
+}
+
+.perfil-hacked .diario-card.has-bg::before {
+  background: rgba(10, 0, 0, 0.6);
 }
 
 .diario-card:hover {

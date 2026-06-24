@@ -57,6 +57,9 @@ export default function Galerias({ albums = [] }) {
             <div className="album-info">
               <div className="album-title">{album.title}</div>
               <div className="album-count">{album.count} fotografías</div>
+              {album.comentario && (
+                <div className="album-comentario">{album.comentario}</div>
+              )}
             </div>
           </div>
         ))}

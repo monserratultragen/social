@@ -23,8 +23,21 @@ export default function Favoritos({ favoritos = [] }) {
           >
             <img className="favorito-image" src={item.image} alt={item.title} loading="lazy" />
             <div className="favorito-info">
-              <div className="favorito-title">{item.title}</div>
-              <div className="favorito-type">{item.type}</div>
+              <div>
+                <div className="favorito-title">{item.title}</div>
+                <div className="favorito-type">{item.type}</div>
+                {item.comentario && (
+                  <div className="favorito-comentario">{item.comentario}</div>
+                )}
+              </div>
+              {item.secondlife_url && (
+                <a href={item.secondlife_url} target="_blank" rel="noopener noreferrer"
+                  className="favorito-sl-link"
+                  title="Abrir en Second Life"
+                  onClick={e => e.stopPropagation()}>
+                  SL →
+                </a>
+              )}
             </div>
           </div>
         ))}

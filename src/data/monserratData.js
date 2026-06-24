@@ -15,6 +15,8 @@ export const user = {
   birthday: '',
   email: '',
   recuerdosBannerUrl: '',
+  cardNovelasImg: '',
+  cardDesktopImg: '',
 };
 
 export const posts = [];

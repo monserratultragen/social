@@ -36,6 +36,8 @@ export async function fetchProfile() {
     email: p.email || '',
     recuerdosPassword: p.recuerdos_password || 'monserrat2024',
     recuerdosBannerUrl: resolveImage({ image_url: p.recuerdos_banner_url, image: p.recuerdos_banner }),
+    cardNovelasImg: p.card_novelas_img || '',
+    cardDesktopImg: p.card_desktop_img || '',
     stats: {
       fotos: p.stats_fotos || 0,
       amigos: p.stats_amigos || 0,
@@ -63,6 +65,7 @@ export async function fetchAlbums() {
     title: a.title || '',
     cover: resolveImage(a),
     count: a.count || 0,
+    comentario: a.comentario || '',
     photos: (a.photos || []).map((photo) => resolveImage(photo)),
   }));
 }
@@ -90,6 +93,8 @@ export async function fetchFavoritos() {
     image: resolveImage(f),
     title: f.title || '',
     type: f.item_type || 'Foto',
+    secondlife_url: f.secondlife_url || '',
+    comentario: f.comentario || '',
   }));
 }
 
