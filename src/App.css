@@ -1247,6 +1247,17 @@
   margin: 0;
 }
 
+.favorito-type {
+  font-size: 0.72rem;
+  color: #fff;
+  background: #d4c5c0;
+  padding: 3px 10px;
+  display: inline-block;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  margin-top: 4px;
+}
+
 .favorito-comentario {
   font-size: 0.78rem;
   color: #8a7d7a;
