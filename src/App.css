@@ -1261,20 +1261,20 @@
 
 .type-general {
   color: #13c2c2;
-  background: rgba(19, 194, 194, 0.06);
-  border: 1px solid rgba(19, 194, 194, 0.35);
+  background: rgba(19, 194, 194, 0.15);
+  border: 1px solid rgba(19, 194, 194, 0.5);
 }
 
 .type-moderate {
   color: #fa8c16;
-  background: rgba(250, 140, 22, 0.06);
-  border: 1px solid rgba(250, 140, 22, 0.35);
+  background: rgba(250, 140, 22, 0.15);
+  border: 1px solid rgba(250, 140, 22, 0.5);
 }
 
 .type-adult {
   color: #ff4d4f;
-  background: rgba(255, 77, 79, 0.06);
-  border: 1px solid rgba(255, 77, 79, 0.35);
+  background: rgba(255, 77, 79, 0.15);
+  border: 1px solid rgba(255, 77, 79, 0.5);
 }
 
 .favorito-comentario {
