@@ -7,10 +7,11 @@ import Galerias from './components/Galerias';
 import Recuerdos from './components/Recuerdos';
 import Favoritos from './components/Favoritos';
 import Contacto from './components/Contacto';
+import Guestbook from './components/Guestbook';
 import PhotoViewer from './components/PhotoViewer';
 import Footer from './components/Footer';
 import * as api from './services/api';
-import { posts as fallbackPosts, albums as fallbackAlbums, recuerdos as fallbackRecuerdos, favoritos as fallbackFavoritos, user as fallbackUser } from './data/monserratData';
+import { posts as fallbackPosts, albums as fallbackAlbums, recuerdos as fallbackRecuerdos, favoritos as fallbackFavoritos, user as fallbackUser, guestbookEntries as fallbackGuestbook } from './data/monserratData';
 
 function isHacked(mode) {
   if (mode === 'always') return true;
@@ -27,6 +28,7 @@ function App() {
   const [albums, setAlbums] = useState(fallbackAlbums);
   const [recuerdos, setRecuerdos] = useState(fallbackRecuerdos);
   const [favoritos, setFavoritos] = useState(fallbackFavoritos);
+  const [guestbookEntries, setGuestbookEntries] = useState(fallbackGuestbook);
   const [hackActive, setHackActive] = useState(false);
   const [hackConfig, setHackConfig] = useState(null);
   const [loaded, setLoaded] = useState(false);
@@ -37,13 +39,14 @@ function App() {
   useEffect(() => {
     async function load() {
       try {
-        const [profileData, postsData, albumsData, recuerdosData, favoritosData] =
+        const [profileData, postsData, albumsData, recuerdosData, favoritosData, guestbookData] =
           await Promise.all([
             api.fetchProfile(),
             api.fetchPosts(),
             api.fetchAlbums(),
             api.fetchRecuerdos(),
             api.fetchFavoritos(),
+            api.fetchGuestbookEntries(),
           ]);
 
         if (profileData) setUser(profileData);
@@ -51,6 +54,7 @@ function App() {
         if (albumsData.length > 0) setAlbums(albumsData);
         if (recuerdosData.length > 0) setRecuerdos(recuerdosData);
         if (favoritosData.length > 0) setFavoritos(favoritosData);
+        if (guestbookData.length > 0) setGuestbookEntries(guestbookData);
         const hackData = await api.fetchHackConfig();
         if (hackData) {
           setHackConfig(hackData);
@@ -94,6 +98,7 @@ function App() {
       {!hackActive && albums.length > 0 && <Galerias albums={albums} />}
       {hackActive && recuerdos.length > 0 && <Recuerdos recuerdos={recuerdos} hackConfig={hackConfig} password={user.recuerdosPassword} bannerUrl={user.recuerdosBannerUrl} />}
       {!hackActive && favoritos.length > 0 && <Favoritos favoritos={favoritos} />}
+      {!hackActive && <Guestbook entries={guestbookEntries} />}
       {!hackActive && <Contacto />}
       <Footer />
 

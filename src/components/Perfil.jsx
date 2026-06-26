@@ -19,25 +19,25 @@ export default function Perfil({ user, hackActive, hackConfig }) {
             <p key={i} className="perfil-tagline">{line}</p>
           ))}
           <div className="perfil-details">
-            <p>📍 {user.location}</p>
-            <p>🎂 {user.birthday}</p>
-            <p>✉️ {user.email}</p>
+            <p><span className="perfil-detail-label">Ubicación:</span> {user.location}</p>
+            <p><span className="perfil-detail-label">Cumpleaños:</span> {user.birthday}</p>
+            <p><span className="perfil-detail-label">Email:</span> {user.email}</p>
           </div>
         </div>
         <div>
           <p className="perfil-bio">{user.bio}</p>
           <div className="diarios-section">
-            <h3 className="diarios-title">{hackActive ? ph.diarios_title : 'Diarios'}</h3>
+            <h3 className="diarios-title">{hackActive ? ph.diarios_title : 'Conoce mis obras'}</h3>
             <div className="diarios-grid">
               <div className={`diario-card${novelasImg ? ' has-bg' : ''}`} style={novelasImg ? { backgroundImage: `url(${novelasImg})` } : {}} onClick={() => setDiarioModal('novelas')}>
-                <div className="diario-card-icon">📖</div>
+                <span className="diario-card-tag diario-card-tag--monserrat">Monserrat</span>
                 <div className="diario-card-name">{hackActive ? ph.diario_novelas_name : 'Novelas'}</div>
-                <div className="diario-card-desc">{hackActive ? ph.diario_novelas_desc : 'Mis historias y relatos'}</div>
+                <div className="diario-card-desc">{hackActive ? ph.diario_novelas_desc : 'Mi historia contada a través de mis diarios personales.'}</div>
               </div>
               <div className={`diario-card${desktopImg ? ' has-bg' : ''}`} style={desktopImg ? { backgroundImage: `url(${desktopImg})` } : {}} onClick={() => setDiarioModal('desktop')}>
-                <div className="diario-card-icon">💻</div>
+                <span className="diario-card-tag diario-card-tag--marcus">Marcus</span>
                 <div className="diario-card-name">{hackActive ? ph.diario_desktop_name : 'Desktop'}</div>
-                <div className="diario-card-desc">{hackActive ? ph.diario_desktop_desc : 'Mi escritorio personal'}</div>
+                <div className="diario-card-desc">{hackActive ? ph.diario_desktop_desc : 'Colección de artículos y escritos seleccionados.'}</div>
               </div>
             </div>
           </div>
@@ -50,7 +50,6 @@ export default function Perfil({ user, hackActive, hackConfig }) {
         <div className="modal-overlay-simple" onClick={() => setDiarioModal(null)}>
           <div className="modal-content-simple" onClick={(e) => e.stopPropagation()}>
             <button className="modal-close-simple" onClick={() => setDiarioModal(null)}>✕</button>
-            <div className="modal-icon-simple">🚧</div>
             <h3 className="modal-title-simple">Próximamente</h3>
             <p className="modal-text-simple">
               {diarioModal === 'novelas'

@@ -128,7 +128,7 @@
   height: 1.5px;
   background: #fff;
   transition: all 0.3s ease;
-  border-radius: 1px;
+  border-radius: 0;
 }
 
 .navbar.scrolled .navbar-hamburger span {
@@ -297,7 +297,7 @@
 }
 
 .feed-card {
-  border-radius: 16px;
+  border-radius: 0;
   overflow: hidden;
   background: #fff;
   transition: transform 0.4s ease, box-shadow 0.4s ease;
@@ -368,7 +368,7 @@
   width: 100%;
   aspect-ratio: 1;
   object-fit: cover;
-  border-radius: 20px;
+  border-radius: 0;
   box-shadow: 0 8px 30px rgba(0, 0, 0, 0.06);
 }
 
@@ -405,7 +405,7 @@
   text-align: center;
   padding: 20px 8px;
   background: #fff;
-  border-radius: 16px;
+  border-radius: 0;
   transition: transform 0.3s ease;
 }
 
@@ -433,6 +433,11 @@
   color: #6a5f5c;
   line-height: 1.8;
   font-weight: 350;
+}
+
+.perfil-detail-label {
+  color: #a89894;
+  font-weight: 400;
 }
 
 @media (max-width: 768px) {
@@ -473,8 +478,101 @@
 }
 
 /* ==============================
-   GALERÍAS (MASONRY)
+   GALERÍAS (SMART GRID / TERCIOS)
    ============================== */
+
+.smart-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.smart-grid-row {
+  display: flex;
+  gap: 8px;
+  height: 300px;
+}
+
+.smart-grid-item {
+  position: relative;
+  overflow: hidden;
+  border-radius: 0;
+  cursor: pointer;
+  height: 100%;
+  min-width: 0;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.smart-grid-item:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.06);
+}
+
+.flex-1 {
+  flex: 1 1 0%;
+}
+
+.flex-2 {
+  flex: 2 1 0%;
+}
+
+.smart-grid-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.6s ease;
+}
+
+.smart-grid-item:hover img {
+  transform: scale(1.05);
+}
+
+.smart-grid-item.is-vertical {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #111;
+  overflow: hidden;
+}
+
+.smart-grid-item.is-vertical .vertical-fg-img {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+  transform: none;
+}
+
+.vertical-blur-bg {
+  position: absolute;
+  inset: -20px;
+  background-size: cover;
+  background-position: center;
+  filter: blur(20px) brightness(1.1);
+  z-index: 1;
+  transition: transform 0.4s ease;
+}
+
+.smart-grid-item.is-vertical:hover .vertical-blur-bg {
+  transform: scale(1.08);
+}
+
+@media (max-width: 768px) {
+  .smart-grid-row {
+    height: 200px;
+    gap: 6px;
+  }
+}
+
+@media (max-width: 600px) {
+  .smart-grid-row {
+    height: 130px;
+    gap: 4px;
+  }
+}
 
 .albums-grid {
   display: grid;
@@ -483,7 +581,7 @@
 }
 
 .album-card {
-  border-radius: 16px;
+  border-radius: 0;
   overflow: hidden;
   background: #fff;
   cursor: pointer;
@@ -569,7 +667,7 @@
 }
 
 .collage-item {
-  border-radius: 8px;
+  border-radius: 0;
   overflow: hidden;
   cursor: pointer;
   transition: transform 0.4s ease, box-shadow 0.4s ease;
@@ -1075,7 +1173,7 @@
 }
 
 .favorito-card {
-  border-radius: 16px;
+  border-radius: 0;
   overflow: hidden;
   background: #fff;
   cursor: pointer;
@@ -1087,15 +1185,46 @@
   box-shadow: 0 20px 60px rgba(0, 0, 0, 0.06);
 }
 
+.favorito-image-wrapper {
+  position: relative;
+  overflow: hidden;
+}
+
 .favorito-image {
   width: 100%;
   aspect-ratio: 4/3;
   object-fit: cover;
+  display: block;
   transition: transform 0.6s ease;
 }
 
 .favorito-card:hover .favorito-image {
   transform: scale(1.05);
+}
+
+.favorito-rating-badge {
+  position: absolute;
+  bottom: 8px;
+  right: 8px;
+  font-size: 0.65rem;
+  padding: 3px 10px;
+  color: #fff;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  background: rgba(0, 0, 0, 0.55);
+  pointer-events: none;
+}
+
+.favorito-rating-badge.rating-adult {
+  background: rgba(200, 50, 50, 0.75);
+}
+
+.favorito-rating-badge.rating-mature {
+  background: rgba(200, 120, 30, 0.75);
+}
+
+.favorito-rating-badge.rating-moderate {
+  background: rgba(180, 160, 40, 0.75);
 }
 
 .favorito-info {
@@ -1105,21 +1234,17 @@
   align-items: center;
 }
 
+.favorito-meta {
+  flex: 1;
+  min-width: 0;
+}
+
 .favorito-title {
   font-family: 'Playfair Display', serif;
   font-size: 1rem;
   font-weight: 500;
   color: #1a1a1a;
-}
-
-.favorito-type {
-  font-size: 0.72rem;
-  color: #fff;
-  background: #d4c5c0;
-  padding: 3px 12px;
-  border-radius: 20px;
-  letter-spacing: 0.5px;
-  text-transform: uppercase;
+  margin: 0;
 }
 
 .favorito-comentario {
@@ -1176,7 +1301,7 @@
   color: #5a4f4c;
   transition: color 0.3s ease;
   padding: 12px 24px;
-  border-radius: 12px;
+  border-radius: 0;
   background: #fff;
   width: 100%;
   max-width: 340px;
@@ -1194,6 +1319,104 @@
   width: 20px;
   height: 20px;
   opacity: 0.7;
+}
+
+/* ==============================
+   LIBRO DE VISITAS
+   ============================== */
+
+.guestbook-container {
+  max-width: 620px;
+  margin: 0 auto;
+}
+
+.guestbook-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 36px;
+}
+
+.guestbook-header-label {
+  font-size: 0.9rem;
+  color: #8a7d7a;
+  font-weight: 350;
+  letter-spacing: 0.3px;
+}
+
+.guestbook-form-link {
+  font-size: 1.6rem;
+  line-height: 1;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+  display: inline-flex;
+}
+
+.guestbook-form-link:hover {
+  transform: scale(1.15);
+}
+
+.guestbook-empty {
+  text-align: center;
+  color: #a89894;
+  font-style: italic;
+  font-size: 0.95rem;
+  padding: 40px 0;
+}
+
+.guestbook-entries {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.guestbook-entry {
+  padding: 20px 0;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.guestbook-entry:last-child {
+  border-bottom: none;
+}
+
+.guestbook-entry-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 6px;
+}
+
+.guestbook-entry-name {
+  font-size: 0.95rem;
+  color: #c9aba4;
+  font-weight: 500;
+}
+
+.guestbook-entry-date {
+  font-size: 0.75rem;
+  color: #a89894;
+  letter-spacing: 0.3px;
+}
+
+.guestbook-entry-message {
+  font-size: 0.9rem;
+  color: #4a403d;
+  line-height: 1.6;
+  font-weight: 350;
+  white-space: pre-wrap;
+}
+
+@media (max-width: 768px) {
+  .guestbook-entry {
+    padding: 16px 0;
+  }
+  .guestbook-entry-name {
+    font-size: 0.88rem;
+  }
+  .guestbook-entry-message {
+    font-size: 0.85rem;
+  }
 }
 
 /* ==============================
@@ -1249,7 +1472,7 @@
   max-width: 100%;
   max-height: 85vh;
   object-fit: contain;
-  border-radius: 4px;
+  border-radius: 0;
   box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
   animation: zoomIn 0.35s ease;
 }
@@ -1283,7 +1506,7 @@
   font-size: 2rem;
   padding: 20px 12px;
   transition: color 0.3s ease, background 0.3s ease;
-  border-radius: 8px;
+  border-radius: 0;
   z-index: 2;
   background: rgba(0, 0, 0, 0.25);
 }
@@ -1313,6 +1536,22 @@
   white-space: nowrap;
 }
 
+.photo-viewer-caption {
+  position: absolute;
+  bottom: 12px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 0.85rem;
+  background: rgba(0, 0, 0, 0.5);
+  padding: 6px 16px;
+  max-width: 90%;
+  text-align: center;
+  line-height: 1.4;
+  pointer-events: none;
+  white-space: pre-wrap;
+}
+
 .photo-viewer-thumbs {
   display: flex;
   flex-direction: column;
@@ -1328,7 +1567,7 @@
   width: 70px;
   height: 70px;
   flex-shrink: 0;
-  border-radius: 6px;
+  border-radius: 0;
   overflow: hidden;
   cursor: pointer;
   border: 2px solid transparent;
@@ -1424,7 +1663,7 @@
 
 .diario-card {
   background: #fff;
-  border-radius: 16px;
+  border-radius: 0;
   padding: 28px 24px;
   text-align: center;
   cursor: pointer;
@@ -1447,7 +1686,7 @@
   content: '';
   position: absolute;
   inset: 0;
-  border-radius: 16px;
+  border-radius: 0;
   background: rgba(0, 0, 0, 0.5);
 }
 
@@ -1472,9 +1711,30 @@
   box-shadow: 0 16px 40px rgba(0, 0, 0, 0.05);
 }
 
-.diario-card-icon {
-  font-size: 2.2rem;
-  margin-bottom: 12px;
+.diario-card-tag {
+  display: inline-block;
+  font-size: 0.6rem;
+  padding: 2px 10px;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+  z-index: 1;
+  position: relative;
+}
+
+.diario-card-tag--monserrat {
+  background: #c9aba4;
+  color: #fff;
+}
+
+.diario-card-tag--marcus {
+  background: #4a6a7a;
+  color: #fff;
+}
+
+.diario-card.has-bg .diario-card-tag {
+  position: relative;
+  z-index: 1;
 }
 
 .diario-card-name {
@@ -1525,7 +1785,7 @@
 
 .modal-content-simple {
   background: #fff;
-  border-radius: 20px;
+  border-radius: 0;
   padding: 40px 36px 36px;
   max-width: 400px;
   width: 90%;
@@ -1573,7 +1833,7 @@
   width: 100%;
   padding: 12px 16px;
   border: 1px solid #e0d6d2;
-  border-radius: 12px;
+  border-radius: 0;
   font-size: 0.95rem;
   font-family: inherit;
   color: #2d2a2a;
@@ -1601,7 +1861,7 @@
   background: #c9aba4;
   color: #fff;
   border: none;
-  border-radius: 12px;
+  border-radius: 0;
   font-size: 0.9rem;
   font-family: inherit;
   cursor: pointer;
@@ -1788,7 +2048,7 @@
     gap: 12px;
   }
   .feed-card {
-    border-radius: 12px;
+    border-radius: 0;
   }
   .feed-card-image {
     max-height: 300px;
@@ -1802,7 +2062,7 @@
   }
   .perfil-stat {
     padding: 12px 4px;
-    border-radius: 12px;
+    border-radius: 0;
   }
   .perfil-details {
     font-size: 0.82rem;
@@ -1931,7 +2191,7 @@
   background: rgba(10, 0, 0, 0.6) !important;
   border: 1px solid #cc0000 !important;
   padding: 16px !important;
-  border-radius: 8px !important;
+  border-radius: 0 !important;
 }
 
 .perfil-hacked .diario-card {

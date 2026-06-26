@@ -1,40 +1,48 @@
-import { useState, useMemo } from 'react';
+import { useState } from 'react';
 import PhotoViewer from './PhotoViewer';
 
 export default function Favoritos({ favoritos = [] }) {
   const [viewerOpen, setViewerOpen] = useState(false);
-  const [viewerIndex, setViewerIndex] = useState(0);
-
-  const images = useMemo(() => favoritos.filter(f => f.image).map((f) => f.image), [favoritos]);
+  const [viewerImage, setViewerImage] = useState(null);
 
   return (
     <section id="favoritos" className="section">
       <h2 className="section-title">Favoritos</h2>
       <p className="section-subtitle">Mis lugares y fotografías especiales</p>
       <div className="favoritos-grid">
-        {favoritos.filter(f => f.image).map((item, i) => (
+        {favoritos.filter(f => f.image).map((item) => (
           <div
             key={item.id}
             className="favorito-card"
             onClick={() => {
-              setViewerIndex(i);
+              setViewerImage(item.image);
               setViewerOpen(true);
             }}
           >
-            <img className="favorito-image" src={item.image} alt={item.title} loading="lazy" />
+            <div className="favorito-image-wrapper">
+              <img className="favorito-image" src={item.image} alt={item.title} loading="lazy" />
+              {item.rating && item.rating !== 'general' && (
+                <span className={`favorito-rating-badge rating-${item.rating}`}>
+                  {item.rating}
+                </span>
+              )}
+            </div>
             <div className="favorito-info">
-              <div>
-                <div className="favorito-title">{item.title}</div>
-                <div className="favorito-type">{item.type}</div>
+              <div className="favorito-meta">
+                <h3 className="favorito-title">{item.title}</h3>
                 {item.comentario && (
-                  <div className="favorito-comentario">{item.comentario}</div>
+                  <p className="favorito-comentario">{item.comentario}</p>
                 )}
               </div>
               {item.secondlife_url && (
-                <a href={item.secondlife_url} target="_blank" rel="noopener noreferrer"
+                <a
+                  href={item.secondlife_url}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="favorito-sl-link"
                   title="Abrir en Second Life"
-                  onClick={e => e.stopPropagation()}>
+                  onClick={e => e.stopPropagation()}
+                >
                   SL →
                 </a>
               )}
@@ -42,12 +50,12 @@ export default function Favoritos({ favoritos = [] }) {
           </div>
         ))}
       </div>
-      {viewerOpen && (
+      {viewerOpen && viewerImage && (
         <PhotoViewer
-          images={images}
-          currentIndex={viewerIndex}
-          onClose={() => setViewerOpen(false)}
-          onNavigate={setViewerIndex}
+          images={[viewerImage]}
+          currentIndex={0}
+          onClose={() => { setViewerOpen(false); setViewerImage(null); }}
+          onNavigate={() => {}}
         />
       )}
     </section>

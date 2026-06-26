@@ -11,6 +11,7 @@ export default function Navbar({ hiddenSections = [] }) {
     { id: 'galerias', label: 'Galerías' },
 
     { id: 'favoritos', label: 'Favoritos' },
+    { id: 'libro', label: 'Libro' },
     { id: 'contacto', label: 'Contacto' },
   ];
 

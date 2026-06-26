@@ -28,3 +28,5 @@ export const friends = [];
 export const recuerdos = [];
 
 export const favoritos = [];
+
+export const guestbookEntries = [];

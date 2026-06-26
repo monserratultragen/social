@@ -64,6 +64,7 @@ export async function fetchAlbums() {
     id: a.id,
     title: a.title || '',
     cover: resolveImage(a),
+    cover_orientation: a.cover_orientation || 'horizontal',
     count: a.count || 0,
     comentario: a.comentario || '',
     photos: (a.photos || []).map((photo) => resolveImage(photo)),
@@ -95,6 +96,7 @@ export async function fetchFavoritos() {
     type: f.item_type || 'Foto',
     secondlife_url: f.secondlife_url || '',
     comentario: f.comentario || '',
+    rating: f.rating || '',
   }));
 }
 
@@ -105,6 +107,16 @@ export async function validarClaveMaestra(clave) {
   } catch {
     return false;
   }
+}
+
+export async function fetchGuestbookEntries() {
+  const data = await fetchJSON('/libro-visitas/');
+  return data.map((e) => ({
+    id: e.id,
+    nombre: e.nombre || '',
+    fecha: e.fecha || '',
+    mensaje: e.mensaje || '',
+  }));
 }
 
 export async function fetchHackConfig() {

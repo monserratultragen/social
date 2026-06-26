@@ -1,6 +1,6 @@
 import { useEffect, useCallback } from 'react';
 
-export default function PhotoViewer({ images, currentIndex, onClose, onNavigate }) {
+export default function PhotoViewer({ images, currentIndex, onClose, onNavigate, captions }) {
   const handleKeyDown = useCallback(
     (e) => {
       if (e.key === 'Escape') onClose();
@@ -51,6 +51,9 @@ export default function PhotoViewer({ images, currentIndex, onClose, onNavigate 
           <div className="photo-viewer-counter">
             {currentIndex + 1} / {images.length}
           </div>
+          {captions && captions[currentIndex] && (
+            <div className="photo-viewer-caption">{captions[currentIndex]}</div>
+          )}
         </div>
 
         {images.length > 1 && (
