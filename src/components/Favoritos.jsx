@@ -21,9 +21,11 @@ export default function Favoritos({ favoritos = [] }) {
           >
             <div className="favorito-image-wrapper">
               <img className="favorito-image" src={item.image} alt={item.title} loading="lazy" />
-              {['general', 'moderate', 'adult'].includes(item.type) && (
-                <span className={`favorito-type type-${item.type}`}>{item.type}</span>
-              )}
+              {(() => {
+                const t = (item.type || '').trim().toLowerCase();
+                if (!['general', 'moderate', 'adult'].includes(t)) return null;
+                return <span className={`favorito-type type-${t}`}>{item.type}</span>;
+              })()}
               {item.rating && item.rating !== 'general' && (
                 <span className={`favorito-rating-badge rating-${item.rating}`}>
                   {item.rating}
