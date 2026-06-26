@@ -21,6 +21,9 @@ export default function Favoritos({ favoritos = [] }) {
           >
             <div className="favorito-image-wrapper">
               <img className="favorito-image" src={item.image} alt={item.title} loading="lazy" />
+              {item.type && (
+                <span className="favorito-type">{item.type}</span>
+              )}
               {item.rating && item.rating !== 'general' && (
                 <span className={`favorito-rating-badge rating-${item.rating}`}>
                   {item.rating}
@@ -30,9 +33,6 @@ export default function Favoritos({ favoritos = [] }) {
             <div className="favorito-info">
               <div className="favorito-meta">
                 <h3 className="favorito-title">{item.title}</h3>
-                {item.type && (
-                  <span className="favorito-type">{item.type}</span>
-                )}
                 {item.comentario && (
                   <p className="favorito-comentario">{item.comentario}</p>
                 )}

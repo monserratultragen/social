@@ -1248,14 +1248,18 @@
 }
 
 .favorito-type {
-  font-size: 0.72rem;
-  color: #fff;
-  background: #d4c5c0;
-  padding: 3px 10px;
-  display: inline-block;
-  letter-spacing: 0.5px;
-  text-transform: uppercase;
-  margin-top: 4px;
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  font-size: 0.7rem;
+  color: #1677ff;
+  background: rgba(22, 119, 255, 0.06);
+  border: 1px solid rgba(22, 119, 255, 0.35);
+  padding: 0 7px;
+  line-height: 22px;
+  letter-spacing: 0.3px;
+  z-index: 1;
+  pointer-events: none;
 }
 
 .favorito-comentario {
