@@ -1694,8 +1694,12 @@
 .diario-card {
   background: #fff;
   border-radius: 0;
-  padding: 32px 24px;
-  min-height: 170px;
+  padding: 40px 28px;
+  min-height: 250px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   text-align: center;
   cursor: pointer;
   transition: transform 0.4s ease, box-shadow 0.4s ease;
@@ -1706,7 +1710,7 @@
   background-size: cover;
   background-position: center;
   position: relative;
-  min-height: 140px;
+  min-height: 250px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -1786,7 +1790,8 @@
 
 @media (max-width: 600px) {
   .diario-card {
-    padding: 18px 12px;
+    padding: 28px 18px;
+    min-height: 200px;
   }
   .diario-card-icon {
     font-size: 1.6rem;
