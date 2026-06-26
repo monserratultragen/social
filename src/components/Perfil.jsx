@@ -30,12 +30,12 @@ export default function Perfil({ user, hackActive, hackConfig }) {
             <h3 className="diarios-title">{hackActive ? ph.diarios_title : 'Conoce mis obras'}</h3>
             <div className="diarios-grid">
               <div className={`diario-card${novelasImg ? ' has-bg' : ''}`} style={novelasImg ? { backgroundImage: `url(${novelasImg})` } : {}} onClick={() => setDiarioModal('novelas')}>
-                <span className="diario-card-tag diario-card-tag--monserrat">Monserrat</span>
+                <span className="diario-card-tag diario-card-tag--monserrat">Autor: Monserrat</span>
                 <div className="diario-card-name">{hackActive ? ph.diario_novelas_name : 'Novelas'}</div>
                 <div className="diario-card-desc">{hackActive ? ph.diario_novelas_desc : 'Mi historia contada a través de mis diarios personales.'}</div>
               </div>
               <div className={`diario-card${desktopImg ? ' has-bg' : ''}`} style={desktopImg ? { backgroundImage: `url(${desktopImg})` } : {}} onClick={() => setDiarioModal('desktop')}>
-                <span className="diario-card-tag diario-card-tag--marcus">Marcus</span>
+                <span className="diario-card-tag diario-card-tag--marcus">Autor: Marcus</span>
                 <div className="diario-card-name">{hackActive ? ph.diario_desktop_name : 'Desktop'}</div>
                 <div className="diario-card-desc">{hackActive ? ph.diario_desktop_desc : 'Colección de artículos y escritos seleccionados.'}</div>
               </div>
