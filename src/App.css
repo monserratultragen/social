@@ -307,7 +307,9 @@
 .feed-card {
   border-radius: 0;
   overflow: hidden;
-  background: #fff;
+  background: rgba(255, 255, 255, 0.85);
+  -webkit-backdrop-filter: blur(6px);
+  backdrop-filter: blur(6px);
   transition: transform 0.4s ease, box-shadow 0.4s ease;
   cursor: pointer;
   break-inside: avoid;
@@ -424,7 +426,9 @@
 .perfil-stat {
   text-align: center;
   padding: 20px 8px;
-  background: #fff;
+  background: rgba(255, 255, 255, 0.85);
+  -webkit-backdrop-filter: blur(6px);
+  backdrop-filter: blur(6px);
   border-radius: 0;
   transition: transform 0.3s ease;
 }
@@ -603,7 +607,9 @@
 .album-card {
   border-radius: 0;
   overflow: hidden;
-  background: #fff;
+  background: rgba(255, 255, 255, 0.85);
+  -webkit-backdrop-filter: blur(6px);
+  backdrop-filter: blur(6px);
   cursor: pointer;
   transition: transform 0.4s ease, box-shadow 0.4s ease;
 }
@@ -739,7 +745,9 @@
   align-items: center;
   justify-content: space-between;
   gap: 40px;
-  background: #fff;
+  background: rgba(255, 255, 255, 0.85);
+  -webkit-backdrop-filter: blur(6px);
+  backdrop-filter: blur(6px);
   border: 1px solid rgba(0, 0, 0, 0.04);
   padding: 36px 40px;
 }
@@ -1267,7 +1275,9 @@
 .favorito-card {
   border-radius: 0;
   overflow: hidden;
-  background: #fff;
+  background: rgba(255, 255, 255, 0.85);
+  -webkit-backdrop-filter: blur(6px);
+  backdrop-filter: blur(6px);
   cursor: pointer;
   transition: transform 0.4s ease, box-shadow 0.4s ease;
 }
@@ -1424,7 +1434,9 @@
   transition: color 0.3s ease;
   padding: 12px 24px;
   border-radius: 0;
-  background: #fff;
+  background: rgba(255, 255, 255, 0.85);
+  -webkit-backdrop-filter: blur(6px);
+  backdrop-filter: blur(6px);
   width: 100%;
   max-width: 340px;
   justify-content: center;
@@ -1796,7 +1808,9 @@
 }
 
 .diario-card {
-  background: #fff;
+  background: rgba(255, 255, 255, 0.85);
+  -webkit-backdrop-filter: blur(6px);
+  backdrop-filter: blur(6px);
   border-radius: 0;
   padding: 40px 28px;
   min-height: 250px;
