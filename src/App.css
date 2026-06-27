@@ -2129,7 +2129,155 @@
 }
 
 /* ==============================
-   RESPONSIVE â€” TABLET & MOBILE
+   DEV NOTES EASTER EGG
+   ============================== */
+
+.dev-modal-content {
+  background: #1a1a1a;
+  border-radius: 0;
+  padding: 40px 36px 36px;
+  max-width: 680px;
+  width: 90%;
+  position: relative;
+  animation: zoomIn 0.3s ease;
+  box-shadow: 0 24px 80px rgba(0, 0, 0, 0.4);
+  max-height: 80vh;
+  overflow-y: auto;
+  text-align: left;
+}
+
+.dev-modal-grid {
+  display: flex;
+  gap: 0;
+  align-items: stretch;
+}
+
+.dev-modal-left {
+  flex: 1;
+  min-width: 0;
+  padding-right: 28px;
+}
+
+.dev-modal-divider {
+  width: 1px;
+  background: #333;
+  flex-shrink: 0;
+}
+
+.dev-modal-right {
+  flex: 1;
+  min-width: 0;
+  padding-left: 28px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.dev-modal-title {
+  font-family: 'Courier New', monospace;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #7bed9f;
+  margin-bottom: 20px;
+  letter-spacing: 1.5px;
+}
+
+.dev-modal-section {
+  margin-bottom: 16px;
+}
+
+.dev-modal-section:last-child {
+  margin-bottom: 0;
+}
+
+.dev-modal-category {
+  font-family: 'Courier New', monospace;
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: #f8c291;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  margin-bottom: 4px;
+  padding-bottom: 3px;
+  border-bottom: 1px solid #333;
+}
+
+.dev-modal-row {
+  display: flex;
+  gap: 8px;
+  font-family: 'Courier New', monospace;
+  font-size: 0.75rem;
+  line-height: 1.6;
+  padding: 1px 0;
+}
+
+.dev-modal-label {
+  color: #82ccdd;
+  flex-shrink: 0;
+  min-width: 76px;
+}
+
+.dev-modal-value {
+  color: #dfe6e9;
+  word-break: break-word;
+}
+
+.dev-modal-prompt {
+  font-family: 'Courier New', monospace;
+  font-size: 0.75rem;
+  color: #b8b8b8;
+  line-height: 1.5;
+  margin-bottom: 12px;
+  font-style: italic;
+}
+
+.dev-modal-subprompt {
+  font-family: 'Courier New', monospace;
+  font-size: 0.7rem;
+  color: #777;
+  margin-bottom: 20px;
+}
+
+.dev-modal-btn {
+  font-family: 'Courier New', monospace;
+  font-size: 0.8rem;
+  color: #1a1a1a;
+  background: #7bed9f;
+  border: none;
+  padding: 12px 36px;
+  cursor: pointer;
+  letter-spacing: 3px;
+  font-weight: 700;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.dev-modal-btn:hover {
+  background: #5edb85;
+  transform: scale(1.03);
+}
+
+@media (max-width: 600px) {
+  .dev-modal-grid {
+    flex-direction: column;
+  }
+  .dev-modal-left {
+    padding-right: 0;
+    padding-bottom: 20px;
+  }
+  .dev-modal-divider {
+    width: 100%;
+    height: 1px;
+  }
+  .dev-modal-right {
+    padding-left: 0;
+    padding-top: 20px;
+  }
+}
+
+/* ==============================
+   RESPONSIVE — TABLET & MOBILE
    ============================== */
 
 @media (max-width: 1024px) {
