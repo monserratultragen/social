@@ -1464,31 +1464,29 @@
   margin: 0 auto;
 }
 
-.guestbook-header {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 12px;
-  margin-bottom: 36px;
+.guestbook-container {
+  text-align: center;
 }
 
-.guestbook-header-label {
-  font-size: 0.9rem;
-  color: #8a7d7a;
-  font-weight: 350;
-  letter-spacing: 0.3px;
-}
-
-.guestbook-form-link {
-  font-size: 1.6rem;
-  line-height: 1;
-  cursor: pointer;
-  transition: transform 0.3s ease;
+.guestbook-sign-btn {
   display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: #c9aba4;
+  color: #fff;
+  border: none;
+  padding: 12px 32px;
+  font-size: 0.95rem;
+  font-family: inherit;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.3s ease;
+  margin-bottom: 40px;
+  text-decoration: none;
 }
 
-.guestbook-form-link:hover {
-  transform: scale(1.15);
+.guestbook-sign-btn:hover {
+  background: #b8938a;
+  transform: translateY(-2px);
 }
 
 .guestbook-empty {
