@@ -7,7 +7,7 @@
 .app {
   position: relative;
   min-height: 100vh;
-  background: linear-gradient(180deg, #fdf6f7 0%, #f7e6ea 50%, #faf0f2 100%);
+  background: linear-gradient(180deg, #fdf6f8 0%, #efd5db 50%, #f6e8eb 100%);
   background-attachment: fixed;
 }
 
@@ -234,6 +234,8 @@
       rgba(0, 0, 0, 0.5) 100%
     );
   background-blend-mode: overlay, normal;
+  -webkit-mask-image: radial-gradient(ellipse at center, black 40%, transparent 85%);
+  mask-image: radial-gradient(ellipse at center, black 40%, transparent 85%);
 }
 
 .hero-content {
@@ -338,7 +340,9 @@
   content: '';
   position: absolute;
   inset: 0;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20'%3E%3Cpath d='M0 0h20v20H0z' fill='none' stroke='%23c9aba4' stroke-width='0.3' opacity='0.04'/%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20'%3E%3Cpath d='M0 0h20v20H0z' fill='none' stroke='%23c9aba4' stroke-width='0.3' opacity='0.05'/%3E%3C/svg%3E");
+  -webkit-mask-image: radial-gradient(ellipse at center, black 30%, transparent 70%);
+  mask-image: radial-gradient(ellipse at center, black 30%, transparent 70%);
   pointer-events: none;
 }
 
@@ -1761,7 +1765,9 @@
   content: '';
   position: absolute;
   inset: 0;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60'%3E%3Cpath d='M0 60L60 0' stroke='%23c9aba4' stroke-width='0.5' opacity='0.08'/%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60'%3E%3Cpath d='M0 60L60 0' stroke='%23c9aba4' stroke-width='0.5' opacity='0.1'/%3E%3C/svg%3E");
+  -webkit-mask-image: linear-gradient(to right, transparent 5%, black 25%, black 75%, transparent 95%);
+  mask-image: linear-gradient(to right, transparent 5%, black 25%, black 75%, transparent 95%);
   pointer-events: none;
 }
 
