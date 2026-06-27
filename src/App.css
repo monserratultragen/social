@@ -6,6 +6,9 @@
 
 .app {
   position: relative;
+  min-height: 100vh;
+  background: linear-gradient(180deg, #fdf6f7 0%, #f7e6ea 50%, #faf0f2 100%);
+  background-attachment: fixed;
 }
 
 .section {
@@ -732,7 +735,7 @@
   align-items: center;
   justify-content: space-between;
   gap: 40px;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24'%3E%3Ccircle cx='2' cy='2' r='0.8' fill='%23c9aba4' opacity='0.08'/%3E%3C/svg%3E"), linear-gradient(135deg, #fdf6f7, #f5d6dd);
+  background: #fff;
   border: 1px solid rgba(0, 0, 0, 0.04);
   padding: 36px 40px;
 }
