@@ -1,4 +1,4 @@
-import { useMemo } from 'react';
+﻿import { useMemo } from 'react';
 
 const GOOGLE_FORM_URL = 'https://docs.google.com/forms/d/e/1FAIpQLSdOybvlEsZIbQxsfFdvt6gJdNLgKSgU8R3mlv1vd0nlnzTMGQ/viewform?usp=header';
 
@@ -17,14 +17,16 @@ export default function Guestbook({ entries = [] }) {
       <p className="section-subtitle">déjame tus palabras</p>
 
       <div className="guestbook-container">
-        <a
-          href={GOOGLE_FORM_URL}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="guestbook-sign-btn"
-        >
-          ✍️ Firmar
-        </a>
+        <div className="guestbook-btn-row">
+          <a
+            href={GOOGLE_FORM_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="guestbook-sign-btn"
+          >
+            ✍️ Firmar
+          </a>
+        </div>
 
         <div className="guestbook-entries">
           {sorted.length === 0 ? (

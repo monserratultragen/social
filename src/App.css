@@ -1,4 +1,4 @@
-/* ==============================
+﻿/* ==============================
    APP LAYOUT
    ============================== */
 
@@ -216,7 +216,8 @@
   inset: 0;
   width: 100%;
   height: 120%;
-  object-fit: cover;
+  background-size: cover;
+  background-position: center;
   will-change: transform;
   transition: transform 0.1s linear;
 }
@@ -464,16 +465,51 @@
   font-weight: 400;
 }
 
+.perfil-meta {
+  margin-top: 12px;
+}
+
 @media (max-width: 768px) {
   .perfil-container {
     grid-template-columns: 1fr;
-    gap: 32px;
+    gap: 24px;
+  }
+  .perfil-avatar-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
 
   .perfil-avatar {
-    max-width: 250px;
+    width: 100%;
+    max-width: 380px;
+    margin: 0 auto;
   }
 
+  .perfil-meta {
+    display: flex;
+    flex-direction: row;
+    gap: 16px;
+    align-items: flex-start;
+  }
+  .perfil-taglines {
+    flex: 1;
+    min-width: 0;
+    word-break: break-word;
+    overflow-wrap: break-word;
+  }
+  .perfil-details {
+    flex: 1;
+    min-width: 0;
+    margin-top: 0;
+    word-break: break-word;
+    overflow-wrap: break-word;
+  }
+  .perfil-bio {
+    text-align: justify;
+    word-break: break-word;
+    overflow-wrap: break-word;
+  }
   .perfil-stats {
     grid-template-columns: repeat(2, 1fr);
   }
@@ -481,28 +517,29 @@
 
 @media (max-width: 600px) {
   .perfil-avatar {
-    width: 180px;
+    width: 100%;
+    max-width: 90%;
     margin: 0 auto;
   }
   .perfil-name {
     font-size: 1.3rem;
-    text-align: center;
   }
   .perfil-tagline {
-    text-align: center;
+    text-align: left;
   }
   .perfil-details {
-    text-align: center;
+    text-align: left;
     font-size: 0.82rem;
   }
   .perfil-bio {
+    text-align: justify;
     word-break: break-word;
     overflow-wrap: break-word;
   }
 }
 
 /* ==============================
-   GALERÍAS (SMART GRID / TERCIOS)
+   GALERÃAS (SMART GRID / TERCIOS)
    ============================== */
 
 .smart-grid {
@@ -741,6 +778,46 @@
    ============================== */
 
 .coffee-card {
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: stretch;
+  gap: 0;
+  padding: 0;
+  background: transparent;
+  border: none;
+}
+
+.coffee-card-bg {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  filter: blur(10px);
+  z-index: 0;
+}
+
+.coffee-card-image {
+  flex-shrink: 0;
+  width: 200px;
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.coffee-card-image img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 30% center;
+}
+
+.coffee-card-content {
+  position: relative;
+  z-index: 1;
+  flex: 1;
+  padding: 36px 40px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -748,8 +825,6 @@
   background: rgba(255, 255, 255, 0.85);
   -webkit-backdrop-filter: blur(6px);
   backdrop-filter: blur(6px);
-  border: 1px solid rgba(0, 0, 0, 0.04);
-  padding: 36px 40px;
 }
 
 .coffee-card-body {
@@ -767,6 +842,15 @@
 
 .coffee-card-action {
   flex-shrink: 0;
+}
+
+.coffee-card-subtext {
+  font-size: 0.82rem;
+  line-height: 1.5;
+  color: #8a7a75;
+  font-weight: 350;
+  margin: 8px 0 0;
+  font-style: italic;
 }
 
 .coffee-btn {
@@ -792,6 +876,13 @@
 @media (max-width: 768px) {
   .coffee-card {
     flex-direction: column;
+  }
+  .coffee-card-image {
+    width: 100%;
+    height: 200px;
+  }
+  .coffee-card-content {
+    flex-direction: column;
     gap: 20px;
     padding: 28px 24px;
   }
@@ -805,13 +896,15 @@
 }
 
 @media (max-width: 480px) {
-  .coffee-card {
+  .coffee-card-image {
+    height: 160px;
+  }
+  .coffee-card-content {
     padding: 24px 20px;
   }
 }
-
 /* ==============================
-   RECUERDOS — DEFACED / HAXXXXED
+   RECUERDOS â€” DEFACED / HAXXXXED
    ============================== */
 
 .recuerdos-section-defaced {
@@ -1464,8 +1557,10 @@
   margin: 0 auto;
 }
 
-.guestbook-container {
-  text-align: center;
+.guestbook-btn-row {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 40px;
 }
 
 .guestbook-sign-btn {
@@ -1480,7 +1575,6 @@
   font-family: inherit;
   cursor: pointer;
   transition: background 0.3s ease, transform 0.3s ease;
-  margin-bottom: 40px;
   text-decoration: none;
 }
 
@@ -1490,11 +1584,11 @@
 }
 
 .guestbook-empty {
-  text-align: center;
   color: #a89894;
   font-style: italic;
   font-size: 0.95rem;
   padding: 40px 0;
+  text-align: left;
 }
 
 .guestbook-entries {
@@ -1506,6 +1600,7 @@
 .guestbook-entry {
   padding: 20px 0;
   border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  text-align: left;
 }
 
 .guestbook-entry:last-child {
@@ -1540,6 +1635,9 @@
 }
 
 @media (max-width: 768px) {
+  .guestbook-btn-row {
+    justify-content: center;
+  }
   .guestbook-entry {
     padding: 16px 0;
   }
@@ -1720,6 +1818,7 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: 30% center;
 }
 
 @media (max-width: 768px) {
@@ -1818,7 +1917,8 @@
   justify-content: center;
   text-align: center;
   cursor: pointer;
-  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  transition: transform 0.4s ease, box-shadow 0.4s ease, filter 0.4s ease;
+  filter: grayscale(1);
   border: 1px solid rgba(0, 0, 0, 0.04);
 }
 
@@ -1858,7 +1958,8 @@
 }
 
 .diario-card:hover {
-  transform: translateY(-4px);
+  transform: none;
+  filter: grayscale(0) brightness(1.5);
   box-shadow: 0 16px 40px rgba(0, 0, 0, 0.05);
 }
 
@@ -1922,7 +2023,7 @@
 }
 
 /* ==============================
-   MODAL (Próximamente + Password)
+   MODAL (PrÃ³ximamente + Password)
    ============================== */
 
 .modal-overlay-simple {
@@ -2028,7 +2129,7 @@
 }
 
 /* ==============================
-   RESPONSIVE — TABLET & MOBILE
+   RESPONSIVE â€” TABLET & MOBILE
    ============================== */
 
 @media (max-width: 1024px) {
@@ -2069,6 +2170,8 @@
   }
   .hero-image {
     height: 100%;
+    background-size: cover;
+    background-position: left center;
   }
   .hero-content h1 {
     letter-spacing: 1px;
@@ -2135,6 +2238,7 @@
     font-size: 1.3rem;
   }
   .diarios-grid {
+    grid-template-columns: 1fr;
     gap: 12px;
   }
   .diario-card {
@@ -2208,7 +2312,7 @@
     max-height: 300px;
   }
   .perfil-avatar {
-    max-width: 180px;
+    max-width: 90%;
   }
   .perfil-stats {
     grid-template-columns: repeat(2, 1fr);
@@ -2412,3 +2516,6 @@
   0% { transform: translateX(0); }
   100% { transform: translateX(-50%); }
 }
+
+
+

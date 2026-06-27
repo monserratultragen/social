@@ -1,4 +1,4 @@
-import { useState } from 'react';
+﻿import { useState } from 'react';
 
 export default function Perfil({ user, hackActive, hackConfig }) {
   const [diarioModal, setDiarioModal] = useState(null);
@@ -15,13 +15,17 @@ export default function Perfil({ user, hackActive, hackConfig }) {
         <div className="perfil-avatar-wrapper">
           <img className="perfil-avatar" src={user.avatar} alt={user.fullName} />
           <h3 className="perfil-name">{hackActive ? ph.name : user.fullName}</h3>
-          {(hackActive ? ph.tagline : user.tagline).split('\n').filter(Boolean).map((line, i) => (
-            <p key={i} className="perfil-tagline">{line}</p>
-          ))}
-          <div className="perfil-details">
-            <p><span className="perfil-detail-label">Ubicación:</span> {user.location}</p>
-            <p><span className="perfil-detail-label">Cumpleaños:</span> {user.birthday}</p>
-            <p><span className="perfil-detail-label">Email:</span> {user.email}</p>
+          <div className="perfil-meta">
+            <div className="perfil-taglines">
+              {(hackActive ? ph.tagline : user.tagline).split('\n').filter(Boolean).map((line, i) => (
+                <p key={i} className="perfil-tagline">{line}</p>
+              ))}
+            </div>
+            <div className="perfil-details">
+              <p><span className="perfil-detail-label">Ubicación:</span> {user.location}</p>
+              <p><span className="perfil-detail-label">Cumpleaños:</span> {user.birthday}</p>
+              <p><span className="perfil-detail-label">Email:</span> {user.email}</p>
+            </div>
           </div>
         </div>
         <div>

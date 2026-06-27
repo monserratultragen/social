@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react';
+﻿import { useEffect, useRef } from 'react';
 
 export default function Hero({ user, hackActive, hackConfig }) {
   const imgRef = useRef(null);
@@ -13,6 +13,7 @@ export default function Hero({ user, hackActive, hackConfig }) {
     };
 
     window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
@@ -20,18 +21,16 @@ export default function Hero({ user, hackActive, hackConfig }) {
 
   return (
     <section id="inicio" className="hero">
-      <img
+      <div
         ref={imgRef}
         className="hero-image"
-        src={user.hero}
-        alt="Monserrat"
-        loading="eager"
+        style={{ backgroundImage: `url(${user.hero})` }}
       />
       <div className="hero-overlay" />
       {hackActive && <div className="hero-hack-overlay" />}
       <div className="hero-content">
         <h1>{hh.title || 'Monserrat'}</h1>
-        <p className="hero-subtitle">{hh.subtitle || 'mi sitio social'}</p>
+        <p className="hero-subtitle">{hh.subtitle || 'Sitio Social'}</p>
       </div>
       <div className="hero-scroll">Explora ahora</div>
     </section>

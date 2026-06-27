@@ -1,3 +1,5 @@
+﻿import cafeImg from '../assets/cafe.avif';
+
 export default function CoffeeSupport() {
   const handleDonate = () => {
     window.open('secondlife:///app/agent/a8c18228-601a-4a14-b5f3-b00d3202c0ad/pay', '_blank');
@@ -8,17 +10,29 @@ export default function CoffeeSupport() {
       <h2 className="section-title">Invitame un cafecito</h2>
       <p className="section-subtitle">Apoya mi trabajo</p>
       <div className="coffee-card">
-        <div className="coffee-card-body">
-          <p className="coffee-card-text">
-            Si disfrutas mi contenido y quieres que siga creando más historias,
-            más capítulos y más aventuras, puedes apoyarme con un pequeño gesto.
-            Cada contribución me da energía para seguir escribiendo.
-          </p>
+        <div
+          className="coffee-card-bg"
+          style={{ backgroundImage: 'url(' + cafeImg + ')' }}
+        />
+        <div className="coffee-card-image">
+          <img src={cafeImg} alt="Café" />
         </div>
-        <div className="coffee-card-action">
-          <button className="coffee-btn" onClick={handleDonate}>
-            ☕ Invitame un cafecito 500L
-          </button>
+        <div className="coffee-card-content">
+          <div className="coffee-card-body">
+            <p className="coffee-card-text">
+              Si disfrutas mi contenido y quieres que siga creando más historias,
+              más capítulos y más aventuras, puedes apoyarme con un pequeño gesto.
+              Cada contribución me da energía para seguir escribiendo.
+            </p>
+            <p className="coffee-card-subtext">
+              Cada cafecito desbloquea secretos dentro de la web.
+            </p>
+          </div>
+          <div className="coffee-card-action">
+            <button className="coffee-btn" onClick={handleDonate}>
+              ☕ Invitame un cafecito 500L
+            </button>
+          </div>
         </div>
       </div>
     </section>
