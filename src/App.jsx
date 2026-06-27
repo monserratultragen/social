@@ -8,6 +8,7 @@ import Recuerdos from './components/Recuerdos';
 import Favoritos from './components/Favoritos';
 import Contacto from './components/Contacto';
 import Guestbook from './components/Guestbook';
+import CoffeeSupport from './components/CoffeeSupport';
 import PhotoViewer from './components/PhotoViewer';
 import Footer from './components/Footer';
 import * as api from './services/api';
@@ -95,6 +96,7 @@ function App() {
       <Hero user={user} hackActive={hackActive} hackConfig={hackConfig} />
       {!hackActive && posts.length > 0 && <Inicio posts={posts} onImageClick={openViewer} />}
       <Perfil user={user} hackActive={hackActive} hackConfig={hackConfig} />
+      {!hackActive && <CoffeeSupport />}
       {!hackActive && albums.length > 0 && <Galerias albums={albums} />}
       {hackActive && recuerdos.length > 0 && <Recuerdos recuerdos={recuerdos} hackConfig={hackConfig} password={user.recuerdosPassword} bannerUrl={user.recuerdosBannerUrl} />}
       {!hackActive && favoritos.length > 0 && <Favoritos favoritos={favoritos} />}
