@@ -719,7 +719,7 @@
   align-items: center;
   justify-content: space-between;
   gap: 40px;
-  background: linear-gradient(135deg, #fdfcfb, #f3e8ea);
+  background: linear-gradient(135deg, #fdf6f7, #f5d6dd);
   border: 1px solid rgba(0, 0, 0, 0.04);
   padding: 36px 40px;
 }
