@@ -15,14 +15,14 @@ const notes = [
       { label: 'Origen', value: 'Chile' },
       { label: 'Región', value: 'Santiago' },
       { label: 'Residencia', value: 'La Dehesa' },
-      { label: 'Idiomas', value: '+7,168' },
+      { label: 'Idiomas', value: 'Español, Inglés, Italiano, +7,168' },
     ],
   },
   {
     category: 'Familia',
     items: [
-      { label: 'Cónyuge', value: 'Marcus — 43' },
-      { label: 'Hija', value: 'Natalia — 3' },
+      { label: 'Esposo', value: 'Marcus — 43' },
+      { label: 'Hija', value: 'Natalia — 18' },
     ],
   },
 ];
