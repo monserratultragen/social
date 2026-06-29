@@ -48,7 +48,8 @@ export default function Galerias({ albums = [] }) {
         ...a,
         src: a.cover,
         orientacion: a.cover_orientation || 'horizontal',
-      }));
+      }))
+      .reverse();
   }, [albums]);
 
   const rows = useMemo(() => layoutRows(photos), [photos]);
