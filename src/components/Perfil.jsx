@@ -112,9 +112,9 @@ export default function Perfil({ user, hackActive, hackConfig }) {
               </div>
               <div className="dev-modal-divider" />
               <div className="dev-modal-right">
-                <p className="dev-modal-prompt">Ciertas respuestas solo se encuentran cuando dejas de buscar con los ojos y empiezas a buscar con la mente.</p>
-                <p className="dev-modal-subprompt">Resuelve los acertijos y obtendrás una recompensa.</p>
-                <button className="dev-modal-btn" onClick={() => {}}>COMENZAR</button>
+                <p className="dev-modal-prompt">¿Crees tener lo necesario para vencerme en una batalla Pokémon? No suelo contener mi fuerza.</p>
+                <p className="dev-modal-subprompt">Gáname y te mostraré un secreto...</p>
+                <button className="dev-modal-btn gengar-btn" onClick={() => window.open('https://monserratultragen.github.io/batalla-pokemon/', '_blank')}>COMENZAR BATALLA</button>
               </div>
             </div>
           </div>
