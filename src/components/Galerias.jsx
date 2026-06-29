@@ -1,36 +1,44 @@
 import { useState, useMemo } from 'react';
 import PhotoViewer from './PhotoViewer';
 
+function isWide(photo) {
+  return photo.orientacion === 'horizontal';
+}
+
 function layoutRows(photos) {
   const rows = [];
-  let i = 0;
-  while (i < photos.length) {
-    if (photos[i].orientacion === 'horizontal') {
-      const next = i + 1 < photos.length ? photos[i + 1] : null;
-      if (next) {
-        rows.push([
-          { ...photos[i], flex: 2, _idx: i },
-          { ...next, flex: 1, _idx: i + 1 },
-        ]);
-        i += 2;
-      } else {
-        rows.push([{ ...photos[i], flex: 1, _idx: i }]);
-        i += 1;
-      }
-    } else {
-      const group = [{ ...photos[i], flex: 1, _idx: i }];
-      i += 1;
-      while (i < photos.length) {
-        if (group.length >= 3) break;
-        const n = photos[i];
-        if (n.orientacion === 'horizontal' && group.length < 2) {
-          const remaining = 3 - group.length;
-          group.push({ ...n, flex: remaining, _idx: i });
-          i += 1;
+  const used = new Set();
+  for (let i = 0; i < photos.length; i++) {
+    if (used.has(i)) continue;
+    const photo = photos[i];
+    if (isWide(photo)) {
+      let pairIdx = -1;
+      for (let j = i + 1; j < photos.length; j++) {
+        if (used.has(j)) continue;
+        if (!isWide(photos[j])) {
+          pairIdx = j;
           break;
         }
-        group.push({ ...n, flex: 1, _idx: i });
-        i += 1;
+      }
+      if (pairIdx >= 0) {
+        rows.push([
+          { ...photo, flex: 2, _idx: i },
+          { ...photos[pairIdx], flex: 1, _idx: pairIdx },
+        ]);
+        used.add(i);
+        used.add(pairIdx);
+      } else {
+        rows.push([{ ...photo, flex: 2, _idx: i }]);
+        used.add(i);
+      }
+    } else {
+      const group = [{ ...photo, flex: 1, _idx: i }];
+      used.add(i);
+      for (let j = i + 1; j < photos.length && group.length < 3; j++) {
+        if (used.has(j)) continue;
+        if (isWide(photos[j])) continue;
+        group.push({ ...photos[j], flex: 1, _idx: j });
+        used.add(j);
       }
       rows.push(group);
     }
@@ -66,10 +74,10 @@ export default function Galerias({ albums = [] }) {
             {row.map((photo, ci) => (
               <div
                 key={ci}
-                className={`smart-grid-item flex-${photo.flex}${photo.orientacion === 'vertical' ? ' is-vertical' : ''}`}
+                className={`smart-grid-item flex-${photo.flex}${!isWide(photo) ? ' is-vertical' : ''}`}
                 onClick={() => setViewerIndex(photo._idx)}
               >
-                {photo.orientacion === 'vertical' ? (
+                {!isWide(photo) ? (
                   <>
                     <div className="vertical-blur-bg" style={{ backgroundImage: `url(${photo.src})` }} />
                     <img className="vertical-fg-img" src={photo.src} alt={photo.title || ''} loading="lazy" />

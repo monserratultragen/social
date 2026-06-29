@@ -116,6 +116,7 @@ export async function fetchGuestbookEntries() {
     nombre: e.nombre || '',
     fecha: e.fecha || '',
     mensaje: e.mensaje || '',
+    created_at: e.created_at || '',
   }));
 }
 

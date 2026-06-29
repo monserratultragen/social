@@ -5,8 +5,8 @@ const GOOGLE_FORM_URL = 'https://docs.google.com/forms/d/e/1FAIpQLSdOybvlEsZIbQx
 export default function Guestbook({ entries = [] }) {
   const sorted = useMemo(() => {
     return [...entries].sort((a, b) => {
-      const dateA = a.fecha ? new Date(a.fecha) : new Date(0);
-      const dateB = b.fecha ? new Date(b.fecha) : new Date(0);
+      const dateA = a.created_at ? new Date(a.created_at) : new Date(0);
+      const dateB = b.created_at ? new Date(b.created_at) : new Date(0);
       return dateB - dateA;
     });
   }, [entries]);
