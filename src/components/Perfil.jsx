@@ -1,4 +1,4 @@
-﻿import { useState, useRef, useCallback } from 'react';
+import { useState, useRef, useCallback } from 'react';
 
 export default function Perfil({ user, hackActive, hackConfig }) {
   const [diarioModal, setDiarioModal] = useState(null);
@@ -41,9 +41,18 @@ export default function Perfil({ user, hackActive, hackConfig }) {
               ))}
             </div>
             <div className="perfil-details">
-              <p><span className="perfil-detail-label">Ubicación:</span> {user.location}</p>
-              <p><span className="perfil-detail-label">Cumpleaños:</span> {user.birthday}</p>
-              <p><span className="perfil-detail-label">Email:</span> {user.email}</p>
+              <p className="perfil-detail-item">
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="perfil-detail-icon" title="Ubicación"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                <span>{user.location}</span>
+              </p>
+              <p className="perfil-detail-item">
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="perfil-detail-icon" title="Cumpleaños"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+                <span>{user.birthday}</span>
+              </p>
+              <p className="perfil-detail-item">
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="perfil-detail-icon" title="Email"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                <span>{user.email}</span>
+              </p>
             </div>
           </div>
         </div>
