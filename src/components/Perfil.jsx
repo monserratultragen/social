@@ -86,7 +86,7 @@ export default function Perfil({ user, hackActive, hackConfig }) {
             <p className="modal-text-simple">
               {diarioModal === 'novelas'
                 ? 'La sección de novelas estará disponible muy pronto. Estoy trabajando en traer mis mejores historias para ti.'
-                : 'El escritorio personal estará disponible próximamente. Pronto podrás explorar mi espacio digital.'}
+                : 'El escritorio personal estará disponible próximamente. Pronto podrás explorar este espacio digital.'}
             </p>
           </div>
         </div>
