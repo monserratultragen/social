@@ -11,6 +11,7 @@ import Guestbook from './components/Guestbook';
 import CoffeeSupport from './components/CoffeeSupport';
 import PhotoViewer from './components/PhotoViewer';
 import Footer from './components/Footer';
+import LoadingScreen from './components/LoadingScreen';
 import * as api from './services/api';
 import { posts as fallbackPosts, albums as fallbackAlbums, recuerdos as fallbackRecuerdos, favoritos as fallbackFavoritos, user as fallbackUser, guestbookEntries as fallbackGuestbook } from './data/monserratData';
 
@@ -87,6 +88,7 @@ function App() {
 
   return (
     <div className={`app${hackActive ? ' hack-mode' : ''}`}>
+      <LoadingScreen loaded={loaded} />
       {!hackActive && (
         <Navbar hiddenSections={[
           ...(albums.length === 0 ? ['galerias'] : []),
