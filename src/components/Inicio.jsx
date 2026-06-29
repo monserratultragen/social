@@ -1,10 +1,20 @@
+import { useMemo } from 'react';
+
 export default function Inicio({ posts = [], onImageClick }) {
+  const sortedPosts = useMemo(() => {
+    return [...posts].sort((a, b) => {
+      const dateA = a.date ? new Date(a.date) : new Date(0);
+      const dateB = b.date ? new Date(b.date) : new Date(0);
+      return dateB - dateA;
+    });
+  }, [posts]);
+
   return (
     <section id="inicio-feed" className="section">
       <h2 className="section-title">Recientes</h2>
       <p className="section-subtitle">momentos compartidos recientemente</p>
       <div className="feed-grid">
-        {posts.filter(p => p.image).map((post) => (
+        {sortedPosts.filter(p => p.image).map((post) => (
           <article
             key={post.id}
             className="feed-card"

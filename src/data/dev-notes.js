@@ -15,7 +15,7 @@ const notes = [
       { label: 'Origen', value: 'Chile' },
       { label: 'Región', value: 'Santiago' },
       { label: 'Residencia', value: 'La Dehesa' },
-      { label: 'Idiomas', value: 'Español, Inglés, Italiano, +7,168' },
+      { label: 'Idiomas', value: 'Español, Inglés, Italiano, +7,168 idiomas' },
     ],
   },
   {
